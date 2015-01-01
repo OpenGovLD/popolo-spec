@@ -14,6 +14,8 @@ A vote is one voter's vote in a vote event.
 
 <h1 id="use-cases-and-requirements">1. Use cases &amp; requirements</h1>
 
+The Vote class should have properties for:
+
 1. [vote event](/specs/vote-event.html)
 
     >Vote No. 42
@@ -69,42 +71,42 @@ Few specifications exist for individual votes, and few legislatures publish vote
   <tbody>
     <tr id="opengov:Vote">
       <td>Vote</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#Vote">opengov:Vote</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#Vote">opengov:Vote</code></td>
       <td>A voter's vote in a vote event</td>
     </tr>
     <tr id="opengov:voteEvent">
       <td>vote event</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#voteEvent">opengov:voteEvent</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#voteEvent">opengov:voteEvent</code></td>
       <td>A vote event</td>
     </tr>
     <tr id="schema:agent">
       <td>voter</td>
       <td><code><a href="http://schema.org/agent" title="http://schema.org/agent">schema:agent</a></code></td>
-      <td>The [person](/specs/person.html) or [organization](/specs/organization.html) that is voting</td>
+      <td>The <a href="/specs/person.html">person</a> or <a href="/specs/organization.html">organization</a> that is voting</td>
     </tr>
     <tr id="schema:option">
       <td>option</td>
       <td><code><a href="http://schema.org/option" title="http://schema.org/option">schema:option</a></code></td>
       <td>The option chosen by the voter, whether actively or passively<a href="#note1"><sup>1</sup></a></td>
     </tr>
-    <tr id="opengov:political_group">
+    <tr id="opengov:politicalGroup">
       <td>political group</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#political_group">opengov:political_group</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#politicalGroup">opengov:politicalGroup</code></td>
       <td>The voter's primary political group<a href="#note2"><sup>2</sup></a></td>
     </tr>
     <tr id="opengov:role">
       <td>role</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#role">opengov:role</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#role">opengov:role</code></td>
       <td>The voter's role in the event</td>
     </tr>
     <tr id="opengov:weight">
       <td>weight</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#weight">opengov:weight</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#weight">opengov:weight</code></td>
       <td>The weight of the voter's vote<a href="#note3"><sup>3</sup></a></td>
     </tr>
     <tr id="opengov:pair">
       <td>pair</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#pair">opengov:pair</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#pair">opengov:pair</code></td>
       <td>The person with whom the voter is paired</td>
     </tr>
   </tbody>
@@ -118,10 +120,13 @@ Few specifications exist for individual votes, and few legislatures publish vote
 
 <h1 id="serialization">4. Serialization</h1>
 
+A vote cannot exist outside a vote event. All votes <em class="rfc2119">must</em> assign a value to either `vote_event_id` or `vote_event`.
+
 **JSON differences from other RDF serializations:**
 
-* The term `voter` is used instead of `agent`, to avoid jargon.
+* The term `voter` is used instead of `agent`, for clarity.
 * The value of the `role` property is a string, instead of an `org:Role`.
+* The term `group` is used instead of `politicalGroup`, to be consistent with the [Count](/specs/count.html) class.
 
 <ul class="nav nav-tabs no-js">
   <li><a href="#vote-schema">JSON Schema</a></li>

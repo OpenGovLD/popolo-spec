@@ -49,27 +49,35 @@ task :default do
       # 'former name',
       'identifier',
       'classification',
+      'parent organization',
       'child organization',
+      # 'geographic area',
+      # 'abstract',
+      'description',
       'founding date',
       'dissolution date',
       'image',
     ],
     membership: [
       'Membership',
-      # 'label',
+      'label',
       'role',
       'person',
       'organization',
       'post',
+      # 'on behalf of',
+      # 'geographic area',
       'start date',
       'end date',
     ],
     post: [
       'Post',
       'label',
+      'alternate label',
       'role',
       'organization',
       'person',
+      # 'geographic area',
       'date of creation',
       'date of elimination',
     ],
@@ -79,19 +87,12 @@ task :default do
       'postal address',
       'telephone',
     ],
-    area: [
-      'Area',
-      'name',
-      'identifier',
-      'classification',
-      'parent_id',
-      'geometry',
-    ],
     motion: [
       'Motion',
       'organization',
-      'session',
+      'legislative session',
       'creator',
+      'identifier',
       'title',
       'description',
       'text',
@@ -106,12 +107,15 @@ task :default do
     ],
     voteevent: [
       'Vote event',
+      'organization',
+      'legislative session',
       'identifier',
       'title',
       'motion',
-      'session',
       'start time',
       'end time',
+      'result',
+      # 'group result',
       'counts',
       'votes',
     ],
@@ -123,13 +127,41 @@ task :default do
     ],
     vote: [
       'Vote',
+      # 'vote event',
       'voter',
-      'area',
-      'group',
       'option',
+      'political group',
       'role',
       # 'weight',
       # 'pair',
+      'area',
+    ],
+    area: [
+      'Area',
+      'name',
+      'identifier',
+      'classification',
+      'parent area',
+      'geometry',
+    ],
+    speech: [
+      'Speech',
+      'speaker',
+      'role',
+      'label',
+      'addressee',
+      'text',
+      'audio',
+      'video',
+      'start time',
+      'end time',
+      'title',
+      'classification',
+      'keywords',
+      'language',
+      'position',
+      'event',
+      'group',
     ],
   }.each do |klass,terms|
     vocabularies = JSON.load(File.read(path('src', 'data', "#{klass}.json")))
@@ -145,4 +177,25 @@ task :default do
   File.open(path('appendices', 'terms.md'), 'w') do |f|
     f.write(template)
   end
+end
+
+desc 'Count terms'
+task :size do
+  class_size = 0
+  top_level_class_size = 0
+  properties = Hash.new(0)
+  Dir['schemas/*'].each do |file|
+    json = JSON.load(File.read(file))
+    if json
+      class_size += 1
+      if json['properties']['id']
+        top_level_class_size += 1
+      end
+      json['properties'].each do |property,_|
+        properties[property] += 1
+      end
+    end
+  end
+  puts "Classes: #{class_size} (#{top_level_class_size} top-level)"
+  puts "Properties: #{properties.values.reduce(:+)} (#{properties.size} unique)"
 end

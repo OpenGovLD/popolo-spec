@@ -42,6 +42,10 @@
       "term": "naics",
       "url": "http://schema.org/naics"
     },
+    "parent organization": {
+      "term": "memberOf",
+      "url": "http://schema.org/memberOf"
+    },
     "child organization": {
       "term": "member",
       "url": "http://schema.org/member"
@@ -49,6 +53,10 @@
     "founding date": {
       "term": "foundingDate",
       "url": "http://schema.org/foundingDate"
+    },
+    "description": {
+      "term": "description",
+      "url": "http://schema.org/description"
     },
     "image": {
       "term": "image",
@@ -75,6 +83,10 @@
     "classification": {
       "term": "classification",
       "url": "http://www.w3.org/TR/vocab-org/#org:classification"
+    },
+    "parent organization": {
+      "term": "subOrganizationOf",
+      "url": "http://www.w3.org/TR/vocab-org/#org:subOrganizationOf"
     },
     "child organization": {
       "term": "hasSubOrganization",
@@ -129,11 +141,15 @@
     },
     "identifier": {
       "term": "nie:identifier",
-      "url": "http://www.semanticdesktop.org/ontologies/nie/#identifier"
+      "url": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie/#identifier"
     },
     "founding date": {
       "term": "birthDate",
       "url": "http://www.semanticdesktop.org/ontologies/2007/03/22/nco/#birthDate"
+    },
+    "description": {
+      "term": "nie:description",
+      "url": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie/#description"
     },
     "image": {
       "term": "photo",
@@ -161,7 +177,7 @@
       "term": "hasMainSector",
       "url": "http://dev.poderopedia.com/documentation/index#poder:hasMainSector"
     },
-    "child organization": {
+    "parent organization": {
       "term": "subsidiaryCompanyOf",
       "url": "http://dev.poderopedia.com/documentation/index#poder:subsidiaryCompanyOf"
     },
@@ -172,6 +188,10 @@
     "dissolution date": {
       "term": "bio:death",
       "url": "http://dev.poderopedia.com/documentation/index#bio:death"
+    },
+    "description": {
+      "term": "rdfs:comment",
+      "url": "http://www.w3.org/2000/01/rdf-schema#comment"
     },
     "image": {
       "term": "hasLogo",
@@ -209,7 +229,11 @@
     },
     "child organization": {
       "term": "member",
-      "url": "http://tools.ietf.org/html/rfc4524#section-2.17"
+      "url": "http://tools.ietf.org/html/rfc4519#section-2.17"
+    },
+    "description": {
+      "term": "description",
+      "url": "http://tools.ietf.org/html/rfc4519#section-2.5"
     }
   },
   "CIQ": {
@@ -229,6 +253,10 @@
       "term": "Type",
       "url": "http://docs.oasis-open.org/emergency/edxl-have/cs01/xPIL.xsd"
     },
+    "parent organization": {
+      "term": "Relationship",
+      "url": "http://docs.oasis-open.org/ciq/v3.0/specs/ciq-specs-v3.html#_Toc193533310"
+    },
     "child organization": {
       "term": "Relationship",
       "url": "http://docs.oasis-open.org/ciq/v3.0/specs/ciq-specs-v3.html#_Toc193533310"
@@ -239,6 +267,10 @@
     },
     "dissolution date": {
       "term": "Date",
+      "url": "http://docs.oasis-open.org/emergency/edxl-have/cs01/xPIL.xsd"
+    },
+    "description": {
+      "term": "FreeTextLines",
       "url": "http://docs.oasis-open.org/emergency/edxl-have/cs01/xPIL.xsd"
     }
   },
@@ -261,7 +293,7 @@
       "term": "OrganizationCategory",
       "label": "Category"
     },
-    "child organization": {
+    "parent organization": {
       "term": "OrganizationParent",
       "label": "Parent"
     },
@@ -272,6 +304,10 @@
     "dissolution date": {
       "term": "OrganizationTerminationDate",
       "label": "TerminationDate"
+    },
+    "description": {
+      "term": "OrganizationDescriptionText",
+      "label": "DescriptionText"
     }
   },
   "Cornell": {

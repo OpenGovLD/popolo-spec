@@ -17,7 +17,6 @@ In some cases, a simple binary relation is enough, e.g. a `memberOf` property li
 According to this data specification, a [person](/specs/person.html) is a member of an [organization](/specs/organization.html), and may optionally hold a [post](/specs/post.html) in that organization through their membership, as illustrated by the class diagram below.
 
 <img src="/img/diagram.png" width="687" height="84" alt="UML diagram">
-{% comment %}http://yuml.me/edit/730bfbbb{% endcomment %}
 
 <h1 id="use-cases-and-requirements">1. Use cases &amp; requirements</h1>
 
@@ -112,17 +111,17 @@ Briefly, the [survey of existing specifications](/appendices/survey.html) conclu
     </tr>
     <tr id="opengov:post">
       <td>post</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#post">opengov:post</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#post">opengov:post</code></td>
       <td>The post held by the member in the organization</td>
     </tr>
     <tr id="opengov:onBehalfOf">
       <td>on behalf of</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#onBehalfOf">opengov:onBehalfOf</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#onBehalfOf">opengov:onBehalfOf</code></td>
       <td>The organization on whose behalf the person is a member of the organization</td>
     </tr>
     <tr id="opengov:area">
       <td>geographic area</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#area">opengov:area</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#area">opengov:area</code></td>
       <td>The geographic area to which the membership is related</td>
     </tr>
     <tr id="schema:validFrom">
@@ -137,7 +136,7 @@ Briefly, the [survey of existing specifications](/appendices/survey.html) conclu
     </tr>
     <tr id="opengov:contactDetail">
       <td>contact detail</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#contactDetail">opengov:contactDetail</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#contactDetail">opengov:contactDetail</code></td>
       <td>A means of contacting the member of the organization</td>
     </tr>
     <tr id="rdfs:seeAlso">
@@ -152,13 +151,13 @@ Briefly, the [survey of existing specifications](/appendices/survey.html) conclu
 
 <h1 id="serialization">4. Serialization</h1>
 
-A membership relation cannot exist without both a member and an organization. All memberships <em class="rfc2119">must</em> assign values to either `member`, `person`, or `person_id` and to either `organization` or `organization_id`.
+A membership relation cannot exist without both a member and an organization. All memberships <em class="rfc2119">must</em> assign values to either `member`, `person`, or `person_id` and to either `organization`, `organization_id`, `post` or `post_id`.
 
 **JSON differences from other RDF serializations:**
 
 * The term `label` is used instead of `prefLabel`, to be consistent with the [ContactDetail](/specs/contact-detail.html) class.
 * The value of the `role` property is a string, instead of an `org:Role`.
-* The term `person` or `person_id` is used in the common case or relating a person to an organization. The term `member` may be used to relate either a person or an organization to an organization ([see an example](/appendices/examples.html#party-coalition)).
+* The term `person` or `person_id` is used in the common case of relating a person to an organization. The term `member` may be used to relate either a person or an organization to an organization ([see an example](/appendices/examples.html#party-coalition)).
 * The terms `start_date` and `end_date`[<sup>2</sup>](#note2) are used instead of `validFrom` and `validUntil`, for backwards compatibility and for better semantics.
 * The term `links` is used instead of `seeAlso` and is serialized as an array of [link objects](/specs/#link).
 

@@ -1,19 +1,20 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix opengov: <http://www.w3.org/ns/opengov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema: <http://schema.org/> .
 <http://example.com/vote_events/example.ttl>
   a opengov:VoteEvent;
+  schema:organizer <http://example.com/organizations/legislative-council-of-hong-kong.ttl>;
   dcterms:identifier "1";
   opengov:motion [
     a opengov:Motion;
     schema:text "根據《立法會（權力及特權）條例》動議的議案"
   ];
-  opengov:organization <http://example.com/organizations/legislative-council-of-hong-kong.ttl>;
   schema:startDate "2013-10-09T18:53:09Z"^^dcterms:W3CDTF;
   schema:endDate "2013-10-09T17:57:10Z"^^dcterms:W3CDTF;
   opengov:result "fail";
-  opengov:group_result [
+  opengov:groupResult [
     a opengov:GroupResult;
     opengov:group [
       foaf:name "Functional constituencies"

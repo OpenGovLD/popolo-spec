@@ -1,6 +1,8 @@
 Prefix,Namespace
 ad,http://schemas.talis.com/2005/address/schema#
+bf,http://bibframe.org/vocab/
 con,http://www.w3.org/2000/10/swap/pim/contact#
+cwork,http://www.bbc.co.uk/ontologies/creativework/
 dcterms,http://purl.org/dc/terms/
 foaf,http://xmlns.com/foaf/0.1/
 gadm,http://gadm.geovocab.org/ontology#
@@ -12,6 +14,7 @@ gn,http://www.geonames.org/ontology#
 locn,http://www.w3.org/ns/locn#
 nco,http://www.semanticdesktop.org/ontologies/nco/#
 nie,http://www.semanticdesktop.org/ontologies/nie/#
+ocd,http://dati.camera.it/ocd/
 oparl,http://oparl.org/schema/1.0/
 org,http://www.w3.org/ns/org#
 person,http://www.w3.org/ns/person#

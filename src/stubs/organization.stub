@@ -29,6 +29,11 @@
       "url": "",
       "label": ""
     },
+    "parent organization": {
+      "term": "",
+      "url": "",
+      "label": ""
+    },
     "child organization": {
       "term": "",
       "url": "",
@@ -40,6 +45,16 @@
       "label": ""
     },
     "dissolution date": {
+      "term": "",
+      "url": "",
+      "label": ""
+    },
+    "abstract": {
+      "term": "",
+      "url": "",
+      "label": ""
+    },
+    "description": {
       "term": "",
       "url": "",
       "label": ""

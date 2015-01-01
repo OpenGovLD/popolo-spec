@@ -48,7 +48,7 @@
     "area": {
       "term": "ESTADO"
     },
-    "group": {
+    "political group": {
       "term": "PARTIDO"
     },
     "option": {
@@ -73,7 +73,7 @@
     "area": {
       "term": "Constituency"
     },
-    "group": {
+    "political group": {
       "term": "Party"
     }
   },
@@ -85,11 +85,19 @@
       "term": "vysledek"
     }
   },
+  "Georgia": {
+    "voter": {
+      "term": "member"
+    },
+    "option": {
+      "term": "vote"
+    }
+  },
   "Germany": {
     "voter": {
       "term": "Bezeichnung"
     },
-    "group": {
+    "political group": {
       "term": "Fraktion/Gruppe"
     }
   },
@@ -101,6 +109,59 @@
       "term": "vote"
     }
   },
+  "Ireland": {
+    "voter": {
+      "term": "member"
+    },
+    "political group": {
+      "term": "party"
+    }
+  },
+  "Italy": {
+    "Vote": {
+      "term": "voto",
+      "url": "http://dati.camera.it/ocd/reference_document/#voto"
+    },
+    "voter": {
+      "term": "rif_deputato",
+      "url": "http://dati.camera.it/ocd/reference_document/#rif_deputato"
+    },
+    "political group": {
+      "term": "rif_gruppoParlamentare",
+      "url": "http://dati.camera.it/ocd/reference_document/#rif_gruppoParlamentare"
+    }
+  },
+  "Norway (CSV)": {
+    "voter": {
+      "term": "Navn"
+    },
+    "area": {
+      "term": "Fylke"
+    },
+    "political group": {
+      "term": "Parti"
+    },
+    "option": {
+      "term": "Votering"
+    }
+  },
+  "Norway (XML)": {
+    "Vote": {
+      "term": "representant_voteringsresultat"
+    },
+    "voter": {
+      "term": "representant"
+    },
+    "area": {
+      "term": "fylke"
+    },
+    "political group": {
+      "term": "parti"
+    },
+    "option": {
+      "term": "votering"
+    }
+  },
   "Spain": {
     "Vote": {
       "term": "Votacion"
@@ -108,7 +169,7 @@
     "voter": {
       "term": "Diputado"
     },
-    "group": {
+    "political group": {
       "term": "Grupo"
     },
     "option": {
@@ -122,7 +183,7 @@
     "area": {
       "term": "valkrets"
     },
-    "group": {
+    "political group": {
       "term": "parti"
     },
     "option": {
@@ -139,7 +200,7 @@
     "area": {
       "label": "<i>canton</i>"
     },
-    "group": {
+    "political group": {
       "label": "<i>faction</i>"
     },
     "option": {
@@ -164,7 +225,7 @@
     "voter": {
       "term": "legislator"
     },
-    "group": {
+    "political group": {
       "term": "party"
     },
     "option": {
@@ -184,7 +245,7 @@
     "area": {
       "term": "state"
     },
-    "group": {
+    "political group": {
       "term": "party"
     },
     "option": {

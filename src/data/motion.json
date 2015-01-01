@@ -8,6 +8,18 @@
       "term": "creator",
       "url": "http://purl.org/dc/terms/creator"
     },
+    "identifier": {
+      "term": "identifier",
+      "url": "http://purl.org/dc/terms/identifier"
+    },
+    "title": {
+      "term": "title",
+      "url": "http://purl.org/dc/terms/title"
+    },
+    "description": {
+      "term": "description",
+      "url": "http://purl.org/dc/terms/description"
+    },
     "object": {
       "term": "references",
       "url": "http://purl.org/dc/terms/references"
@@ -34,6 +46,14 @@
       "term": "creator",
       "url": "http://schema.org/creator"
     },
+    "title": {
+      "term": "name",
+      "url": "http://schema.org/name"
+    },
+    "description": {
+      "term": "description",
+      "url": "http://schema.org/description"
+    },
     "text": {
       "term": "text",
       "url": "http://schema.org/text"
@@ -44,7 +64,7 @@
     }
   },
   "PML": {
-    "session": {
+    "legislative session": {
       "term": "calendarObjectID"
     },
     "creator": {
@@ -61,8 +81,11 @@
     "organization": {
       "term": "organization"
     },
-    "session": {
+    "legislative session": {
       "term": "session"
+    },
+    "identifier": {
+      "term": "id"
     },
     "text": {
       "term": "refersTo"
@@ -78,6 +101,12 @@
     }
   },
   "Cornell": {
+    "organization": {
+      "term": "hasChamber, hasCommittee"
+    },
+    "identifier": {
+      "term": "hasIdentifier"
+    },
     "text": {
       "term": "hasDocument"
     },
@@ -101,15 +130,15 @@
     "Motion": {
       "label": "<i>proposição</i>"
     },
+    "legislative session": {
+      "label": "<i>sessão legislativa</i>"
+    },
     "title": {
       "label": "<i>nome</i>"
-    },
-    "session": {
-      "label": "<i>sessão legislativa</i>"
     }
   },
   "Canada (vote list)": {
-    "session": {
+    "legislative session": {
       "term": "session"
     },
     "text": {
@@ -140,7 +169,7 @@
     "organization": {
       "term": "id_organ"
     },
-    "session": {
+    "legislative session": {
       "term": "schuze"
     },
     "object": {
@@ -153,8 +182,13 @@
       "term": "vysledek"
     }
   },
+  "Georgia": {
+    "vote events": {
+      "term": "sessions"
+    }
+  },
   "Germany": {
-    "session": {
+    "legislative session": {
       "term": "Sitzungnr"
     }
   },
@@ -169,8 +203,49 @@
       "term": "result"
     }
   },
+  "Ireland": {
+    "Motion": {
+      "term": "vote"
+    },
+    "organization": {
+      "term": "forum"
+    },
+    "legislative session": {
+      "term": "dailnumber"
+    },
+    "title": {
+      "term": "votetitle"
+    },
+    "text": {
+      "term": "votetext"
+    },
+    "classification": {
+      "term": "category"
+    },
+    "proposal date": {
+      "term": "votedatetime"
+    }
+  },
+  "Italy": {
+    "legislative session": {
+      "term": "rif_seduta",
+      "url": "http://dati.camera.it/ocd/reference_document/#rif_seduta"
+    },
+    "result": {
+      "term": "approvato",
+      "url": "http://dati.camera.it/ocd/reference_document/#approvato"
+    }
+  },
+  "Norway (XML)": {
+    "result": {
+      "term": "vedtatt"
+    },
+    "vote events": {
+      "term": "sak_votering_liste"
+    }
+  },
   "Spain": {
-    "session": {
+    "legislative session": {
       "term": "Sesion"
     },
     "text": {
@@ -182,12 +257,12 @@
   },
   "Sweden": {
     "Motion": {
-      "label": "<i>Förslagspunkt</i>"
+      "label": "<i>förslagspunkt</i>"
     },
     "organization": {
       "term": "beteckning"
     },
-    "session": {
+    "legislative session": {
       "term": "rm"
     },
     "classification": {
@@ -201,11 +276,14 @@
     "organization": {
       "term": "council"
     },
-    "session": {
+    "legislative session": {
       "term": "session"
     },
     "creator": {
       "term": "author"
+    },
+    "identifier": {
+      "term": "id"
     },
     "title": {
       "term": "title"
@@ -253,28 +331,51 @@
     "organization": {
       "term": "chamber"
     },
-    "session": {
-      "term": "session"
+    "legislative session": {
+      "term": "congress, session"
+    },
+    "title": {
+      "term": "vote-question"
     },
     "text": {
-      "term": "vote-question"
+      "term": "vote-desc"
+    },
+    "classification": {
+      "term": "vote-type"
     },
     "object": {
       "term": "legis-num"
-    },
-    "requirement": {
-      "term": "vote-type"
     },
     "result": {
       "term": "vote-result"
     }
   },
-  "US (Senate)": {
-    "session": {
-      "term": "session"
+  "US (Senate list)": {
+    "legislative session": {
+      "term": "congress, session"
+    },
+    "title": {
+      "term": "question"
     },
     "text": {
-      "term": "title, vote_title"
+      "term": "title"
+    },
+    "object": {
+      "term": "issue"
+    },
+    "result": {
+      "term": "result"
+    }
+   },
+  "US (Senate detail)": {
+    "legislative session": {
+      "term": "congress, session"
+    },
+    "title": {
+      "term": "question"
+    },
+    "text": {
+      "term": "vote_title"
     },
     "object": {
       "term": "document, amendment"
@@ -283,7 +384,7 @@
       "term": "majority_requirement"
     },
     "result": {
-      "term": "result, vote_result"
+      "term": "vote_result"
     }
   }
 }

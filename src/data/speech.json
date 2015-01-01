@@ -1,0 +1,299 @@
+{
+  "dcterms": {
+    "Speech": {
+      "term": "Text",
+      "url": "http://purl.org/dc/dcmitype/Text"
+    },
+    "speaker": {
+      "term": "creator",
+      "url": "http://purl.org/dc/terms/creator"
+    },
+    "addressee": {
+      "term": "audience",
+      "url": "http://purl.org/dc/terms/audience"
+    },
+    "start time": {
+      "term": "date",
+      "url": "http://purl.org/dc/terms/date"
+    },
+    "title": {
+      "term": "title",
+      "url": "http://purl.org/dc/terms/title"
+    },
+    "classification": {
+      "term": "type",
+      "url": "http://purl.org/dc/terms/type"
+    },
+    "keywords": {
+      "term": "subject",
+      "url": "http://purl.org/dc/terms/subject"
+    },
+    "language": {
+      "term": "language",
+      "url": "http://purl.org/dc/terms/language"
+    },
+    "group": {
+      "term": "isPartOf",
+      "url": "http://purl.org/dc/terms/isPartOf"
+    }
+  },
+  "schema": {
+    "Speech": {
+      "term": "CreativeWork",
+      "url": "http://schema.org/CreativeWork"
+    },
+    "speaker": {
+      "term": "creator",
+      "url": "http://schema.org/creator"
+    },
+    "label": {
+      "term": "alternateName",
+      "url": "http://schema.org/alternateName"
+    },
+    "addressee": {
+      "term": "audience",
+      "url": "http://schema.org/audience"
+    },
+    "text": {
+      "term": "text",
+      "url": "http://schema.org/text"
+    },
+    "audio": {
+      "term": "audio",
+      "url": "http://schema.org/audio"
+    },
+    "video": {
+      "term": "video",
+      "url": "http://schema.org/video"
+    },
+    "start time": {
+      "term": "datePublished",
+      "url": "http://schema.org/datePublished"
+    },
+    "title": {
+      "term": "title",
+      "url": "http://schema.org/title"
+    },
+    "classification": {
+      "term": "additionalType",
+      "url": "http://schema.org/additionalType"
+    },
+    "language": {
+      "term": "inLanguage",
+      "url": "http://schema.org/inLanguage"
+    },
+    "position": {
+      "term": "position",
+      "url": "http://schema.org/position"
+    },
+    "keywords": {
+      "term": "keywords",
+      "url": "http://schema.org/keywords"
+    },
+    "group": {
+      "term": "isPartOf",
+      "url": "http://schema.org/isPartOf"
+    }
+  },
+  "ocd": {
+    "Speech": {
+      "term": "intervento",
+      "url": "http://dati.camera.it/ocd/intervento"
+    },
+    "speaker": {
+      "term": "rif_deputato",
+      "url": "http://dati.camera.it/ocd/rif_deputato"
+    }
+  },
+  "bf": {
+    "Speech": {
+      "term": "Text",
+      "url": "http://bibframe.org/vocab/Text"
+    },
+    "speaker": {
+      "term": "creator",
+      "url": "http://bibframe.org/vocab/creator"
+    },
+    "addressee": {
+      "term": "intendedAudience",
+      "url": "http://bibframe.org/vocab/intendedAudience"
+    },
+    "start time": {
+      "term": "creationDate",
+      "url": "http://bibframe.org/vocab/creationDate"
+    },
+    "title": {
+      "term": "title",
+      "url": "http://bibframe.org/vocab/title"
+    },
+    "classification": {
+      "term": "classification",
+      "url": "http://bibframe.org/vocab/classification"
+    },
+    "keywords": {
+      "term": "category",
+      "url": "http://bibframe.org/vocab/category"
+    },
+    "language": {
+      "term": "language",
+      "url": "http://bibframe.org/vocab/language"
+    },
+    "position": {
+      "term": "precededBy",
+      "url": "http://bibframe.org/vocab/precededBy"
+    },
+    "event": {
+      "term": "event",
+      "url": "http://bibframe.org/vocab/event"
+    },
+    "group": {
+      "term": "isPartOf",
+      "url": "http://bibframe.org/vocab/isPartOf"
+    }
+  },
+  "cwork": {
+    "Speech": {
+      "term": "CreativeWork",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/CreativeWork"
+    },
+    "addressee": {
+      "term": "audience",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/audience"
+    },
+    "start time": {
+      "term": "dateCreated",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/dateCreated"
+    },
+    "title": {
+      "term": "title",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/title"
+    },
+    "classification": {
+      "term": "category",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/category"
+    },
+    "keywords": {
+      "term": "tag",
+      "url": "http://www.bbc.co.uk/ontologies/creativework/tag"
+    }
+  },
+  "PML": {
+    "Speech": {
+      "term": "contribution"
+    },
+    "speaker": {
+      "term": "contributorID"
+    },
+    "text": {
+      "term": "label"
+    },
+    "start time": {
+      "term": "startDate, startTime"
+    },
+    "end time": {
+      "term": "endDate, endTime"
+    },
+    "classification": {
+      "term": "type"
+    },
+    "keywords": {
+      "term": "category"
+    },
+    "language": {
+      "term": "lang"
+    },
+    "group": {
+      "term": "proceedingsObject"
+    }
+  },
+  "AkomaNtoso": {
+    "speaker": {
+      "term": "by"
+    },
+    "role": {
+      "term": "as"
+    },
+    "label": {
+      "term": "from, showAs, shortForm"
+    },
+    "addressee": {
+      "term": "to"
+    },
+    "start time": {
+      "term": "startTime"
+    },
+    "end time": {
+      "term": "endTime"
+    },
+    "title": {
+      "term": "num, heading, subheading"
+    },
+    "classification": {
+      "term": "speech, question, answer, scene, narrative, summary, other"
+    },
+    "language": {
+      "term": "lang"
+    }
+  },
+  "Canada (Hansard)": {
+    "Speech": {
+      "term": "Intervention"
+    },
+    "speaker": {
+      "term": "PersonSpeaking"
+    },
+    "label": {
+      "term": "Affiliation"
+    },
+    "text": {
+      "term": "Content"
+    },
+    "start time": {
+      "term": "Timestamp"
+    },
+    "classification": {
+      "term": "Type"
+    },
+    "language": {
+      "term": "language"
+    }
+  },
+  "SayIt": {
+    "Speech": {
+      "term": "Speech"
+    },
+    "speaker": {
+      "term": "speaker"
+    },
+    "label": {
+      "term": "speaker_display"
+    },
+    "text": {
+      "term": "text"
+    },
+    "audio": {
+      "term": "audio"
+    },
+    "start time": {
+      "term": "start_date, start_time"
+    },
+    "end time": {
+      "term": "end_date, end_time"
+    },
+    "title": {
+      "term": "num, heading, subheading"
+    },
+    "classification": {
+      "term": "type"
+    },
+    "keywords": {
+      "term": "tags"
+    },
+    "event": {
+      "term": "event"
+    },
+    "group": {
+      "term": "section"
+    }
+  }
+}

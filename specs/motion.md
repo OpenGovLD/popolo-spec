@@ -34,6 +34,10 @@ The Motion class should have properties for:
 
     >That the House do now proceed to the Orders of the Day.
 
+1. identifier
+
+    >2014/556
+
 1. classification
 
     >e.g. [adjournment](http://www.parliament.uk/site-information/glossary/adjournment-motion/), [allocation of time](http://www.parliament.uk/site-information/glossary/allocation-of-time-motion/), [business](http://www.parliament.uk/site-information/glossary/business-motion/), [carry-over](http://www.parliament.uk/site-information/glossary/carry-over-motions-bills/),  [closure](http://www.parliament.uk/site-information/glossary/closure-motion/), [dilatory](http://www.parliament.uk/site-information/glossary/dilatory-motion/), [programme](http://www.parliament.uk/site-information/glossary/programme-motion/), etc.
@@ -54,7 +58,11 @@ The Motion class should have properties for:
 
 <h1 id="standard-reuse">2. Standard reuse</h1>
 
-Few specifications exist for motions, and few legislatures publish motions in a machine-readable format. In many, the only specified or recorded motions are those with a single [vote event](/specs/vote-event.html). However, a single motion may have multiple vote events; for example, a voice vote followed by a recorded vote. Dublin Core, Schema.org, and Akoma Ntoso terms are retained from the [inventory of terms](/appendices/terms.html#Motion).
+Few specifications exist for motions, and few legislatures publish motions in a machine-readable format. In many, the only specified or recorded motions are those with a single [vote event](/specs/vote-event.html). However, a single motion may have multiple vote events; for example, a voice vote followed by a recorded vote. Dublin Core, Schema.org, and Parliamentary Metadata Language terms are retained from the [inventory of terms](/appendices/terms.html#Motion).
+
+## 2.1. Range restrictions
+
+Either a person or an organization can create a [CreativeWork](http://schema.org/CreativeWork). A Motion is a subclass of CreativeWork, and only a person can create a Motion.
 
 <h1 id="classes-and-properties">3. Classes and properties</h1>
 
@@ -69,7 +77,7 @@ Few specifications exist for motions, and few legislatures publish motions in a 
   <tbody>
     <tr id="opengov:Motion">
       <td>Motion</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#Motion">opengov:Motion</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#Motion">opengov:Motion</code></td>
       <td>A formal step to introduce a matter for consideration by an organization</td>
     </tr>
     <tr id="schema:publisher">
@@ -77,14 +85,14 @@ Few specifications exist for motions, and few legislatures publish motions in a 
       <td><code><a href="http://schema.org/publisher" title="http://schema.org/publisher">schema:publisher</a></code></td>
       <td>The organization in which the motion is proposed</td>
     </tr>
-    <tr id="opengov:legislative_session">
-      <td>legislative_session</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#legislative_session">opengov:legislative_session</a></code></td>
+    <tr id="opengov:legislativeSession">
+      <td>legislative session</td>
+      <td><code title="http://www.w3.org/ns/opengov#legislativeSession">opengov:legislativeSession</code></td>
       <td>The legislative session in which the motion is proposed</td>
     </tr>
     <tr id="schema:creator">
       <td>creator</td>
-      <td><code><a href="http://schema.org/text" title="http://schema.org/creator">schema:creator</a></code></td>
+      <td><code><a href="http://schema.org/creator" title="http://schema.org/creator">schema:creator</a></code></td>
       <td>The person who proposed the motion</td>
     </tr>
     <tr id="schema:text">
@@ -92,9 +100,14 @@ Few specifications exist for motions, and few legislatures publish motions in a 
       <td><code><a href="http://schema.org/text" title="http://schema.org/text">schema:text</a></code></td>
       <td>The transcript or text of the motion</td>
     </tr>
-    <tr id="opengov:classification">
+    <tr id="dcterms:identifier">
+      <td>identifier</td>
+      <td><code><a href="http://dublincore.org/documents/dcmi-terms/#terms-identifier" title="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+      <td>An issued identifier</td>
+    </tr>
+    <tr id="schema:additionalType">
       <td>classification</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#classification">opengov:classification</a></code></td>
+      <td><code><a href="http://schema.org/additionalType" title="http://schema.org/additionalType">schema:additionalType</a></code></td>
       <td>A motion category, e.g. adjournment</td>
     </tr>
     <tr id="dcterms:dateSubmitted">
@@ -104,30 +117,30 @@ Few specifications exist for motions, and few legislatures publish motions in a 
     </tr>
     <tr id="opengov:requirement">
       <td>requirement</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#requirement">opengov:requirement</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#requirement">opengov:requirement</code></td>
       <td>The requirement for the motion to be adopted</td>
     </tr>
     <tr id="opengov:result">
       <td>result</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#result">opengov:result</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#result">opengov:result</code></td>
       <td>The result of the motion</td>
     </tr>
     <tr id="opengov:voteEvent">
       <td>vote event</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#voteEvent">opengov:voteEvent</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#voteEvent">opengov:voteEvent</code></td>
       <td>An event at which people vote on the motion</td>
     </tr>
   </tbody>
 </table>
 
-The range of the legislative session property is not yet specified.
-
 <h1 id="serialization">4. Serialization</h1>
 
 **JSON differences from other RDF serializations:**
 
-* The term `organization` is used instead of `publisher`, to be consistent with the name of the [Organization](/specs/organization.html) class.
+* The term `organization` is used instead of `publisher`, to be consistent with the [Membership](/specs/membership.html) class.
+* The term `classification` is used instead of `additionalType`, to be consistent with the [Organization](/specs/organization.html) class.
 * The value of the `classification` property is a string, instead of a `skos:Concept`.
+* The term `date` is used instead of `dateSubmitted`, for clarity.
 
 <ul class="nav nav-tabs no-js">
   <li><a href="#motion-schema">JSON Schema</a></li>

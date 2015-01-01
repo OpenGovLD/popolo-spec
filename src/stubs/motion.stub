@@ -9,12 +9,17 @@
       "url": "",
       "label": ""
     },
-    "session": {
+    "legislative session": {
       "term": "",
       "url": "",
       "label": ""
     },
     "creator": {
+      "term": "",
+      "url": "",
+      "label": ""
+    },
+    "identifier": {
       "term": "",
       "url": "",
       "label": ""

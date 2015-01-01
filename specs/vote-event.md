@@ -1,6 +1,6 @@
 ---
 layout: class
-title: Vote Event | The Popolo Project
+title: Vote event | The Popolo Project
 id: vote-event
 ---
 
@@ -14,13 +14,7 @@ A vote event is an event at which people's votes are recorded.
 
 <h1 id="use-cases-and-requirements">1. Use cases &amp; requirements</h1>
 
-1. identifiers
-
-    >Vote No. 42
-
-1. the [motion](/specs/motion.html) on which people are voting
-
-    >That the House do now proceed to the Orders of the Day.
+The Vote Event class should have properties for:
 
 1. the [organization](/specs/organization.html) whose members are voting
 
@@ -29,6 +23,14 @@ A vote event is an event at which people's votes are recorded.
 1. the legislative session in which the vote event occurs
 
     >2nd Session of the 41st Parliament
+
+1. identifiers
+
+    >Vote No. 42
+
+1. the [motion](/specs/motion.html) on which people are voting
+
+    >That the House do now proceed to the Orders of the Day.
 
 1. the time at which the event begins
 
@@ -56,7 +58,7 @@ A vote event is an event at which people's votes are recorded.
 
 <h1 id="standard-reuse">2. Standard reuse</h1>
 
-Few specifications exist for vote events, and few legislatures publish vote data in a machine-readable format. Schema.org and Parliamentary Metadata Language terms are retained from the [inventory of terms](/appendices/terms.html#VoteEvent).
+Few specifications exist for vote events, and few legislatures publish vote data in a machine-readable format. Dublin Core, Schema.org, and Parliamentary Metadata Language terms are retained from the [inventory of terms](/appendices/terms.html#VoteEvent).
 
 <h1 id="classes-and-properties">3. Classes and properties</h1>
 
@@ -71,8 +73,18 @@ Few specifications exist for vote events, and few legislatures publish vote data
   <tbody>
     <tr id="opengov:VoteEvent">
       <td>Vote event</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#VoteEvent">opengov:VoteEvent</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#VoteEvent">opengov:VoteEvent</code></td>
       <td>An event at which people's votes are recorded</td>
+    </tr>
+    <tr id="schema:organizer">
+      <td>organization</td>
+      <td><code><a href="http://schema.org/organizer" title="http://schema.org/organizer">schema:organizer</a></code></td>
+      <td>The organization whose members are voting<a href="#note1"><sup>1</sup></a></td>
+    </tr>
+    <tr id="schema:superEvent">
+      <td>legislative session</td>
+      <td><code><a href="http://schema.org/superEvent" title="http://schema.org/superEvent">schema:superEvent</a></code></td>
+      <td>The legislative session in which the vote event occurs<a href="#note1"><sup>1</sup></a></td>
     </tr>
     <tr id="dcterms:identifier">
       <td>identifier</td>
@@ -81,18 +93,8 @@ Few specifications exist for vote events, and few legislatures publish vote data
     </tr>
     <tr id="opengov:motion">
       <td>motion</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#motion">opengov:motion</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#motion">opengov:motion</code></td>
       <td>The motion being decided</td>
-    </tr>
-    <tr id="opengov:organization">
-      <td>organization</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#organization">opengov:organization</a></code></td>
-      <td>The organization whose members are voting<a href="#note1"><sup>1</sup></a></td>
-    </tr>
-    <tr id="schema:superEvent">
-      <td>legislative session</td>
-      <td><code><a href="#" title="http://schema.org/superEvent">schema:superEvent</a></code></td>
-      <td>The legislative session in which the vote event occurs<a href="#note1"><sup>1</sup></a></td>
     </tr>
     <tr id="schema:startDate">
       <td>start date</td>
@@ -106,45 +108,38 @@ Few specifications exist for vote events, and few legislatures publish vote data
     </tr>
     <tr id="opengov:result">
       <td>result</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#result">opengov:result</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#result">opengov:result</code></td>
       <td>The result of the vote event<a href="#note2"><sup>2</sup></a></td>
     </tr>
-    <tr id="opengov:group_result">
+    <tr id="opengov:groupResult">
       <td>group result</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#group_result">opengov:group_result</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#groupResult">opengov:groupResult</code></td>
       <td>The result of the vote event within groups of voters</td>
     </tr>
     <tr id="opengov:count">
       <td>count</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#count">opengov:count</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#count">opengov:count</code></td>
       <td>The number of votes for an option</td>
     </tr>
     <tr id="opengov:vote">
       <td>vote</td>
-      <td><code><a href="#" title="http://www.w3.org/ns/opengov#vote">opengov:vote</a></code></td>
+      <td><code title="http://www.w3.org/ns/opengov#vote">opengov:vote</code></td>
       <td>A voter's vote</td>
     </tr>
   </tbody>
 </table>
 
-The range of the legislative session property is not yet specified.
+The vote totals <em class="rfc2119">should</em> agree with the individual votes. The [vote totals](/specs/count.html) <em class="rfc2119">may</em> not include all options from individual votes, and the [individual votes](/specs/vote.html) <em class="rfc2119">may</em> not include all present voters, in particular if the options chosen that have no effect on the result, e.g. abstentions.
 
-The [group results](/specs/#group-result) <em class="rfc2119">should not</em> be reported if the group results have no impact on the overall result of the vote event: for example, results by party.
-
-The [vote totals](/specs/count.html) <em class="rfc2119">may</em> not include all options from individual votes, in particular options that have no effect on the result.
-
-The [individual votes](/specs/vote.html) <em class="rfc2119">may</em> not include all present voters.
-
-The vote totals <em class="rfc2119">should</em> agree with the individual votes.
-
-<p class="note" id="note1">1. If an implementation uses the <a href="/specs/motion.html">Motion</a> class, it is not necessary to repeat the <code>organization</code> and <code>legislative_session</code> properties on the motion's vote events, unless they differ. For example, a committee may consider a legislature's motion, such as in the [Riksdag](http://en.wikipedia.org/wiki/Riksdag).</p>
+<p class="note" id="note1">1. If an implementation uses the <a href="/specs/motion.html">Motion</a> class, it is not necessary to repeat the <code>organization</code> and <code>legislative_session</code> properties on the motion's vote events, unless they differ; for example, a committee may consider a legislature's motion, such as in the <a href="http://en.wikipedia.org/wiki/Riksdag">Riksdag</a>.</p>
 <p class="note" id="note2">2. If a motion has multiple vote events, it is relevant to communicate the result of each event.</p>
 
 <h1 id="serialization">4. Serialization</h1>
 
 **JSON differences from other RDF serializations:**
 
-* The term `identifier` is used instead of `notation`, to be consistent with [identifier objects](/specs/#identifier).
+* The term `organization` is used instead of `organizer`, to be consistent with the [Membership](/specs/membership.html) class.
+* The term `legislative_session` is used instead of `superEvent`, for clarity.
 
 <ul class="nav nav-tabs no-js">
   <li><a href="#vote-event-schema">JSON Schema</a></li>

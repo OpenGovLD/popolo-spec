@@ -20,6 +20,8 @@
     "@id": "http://www.w3.org/ns/opengov#area",
     "@type": "@id"
   },
+  "abstract": "http://purl.org/dc/terms/abstract",
+  "description": "http://purl.org/dc/terms/description",
   "founding_date": {
     "@id": "http://schema.org/foundingDate",
     "@type": "http://purl.org/dc/terms/W3CDTF"
@@ -46,6 +48,22 @@
   },
   "posts": {
     "@id": "http://www.w3.org/ns/org#hasPost",
+    "@type": "@id"
+  },
+  "motions": {
+    "@reverse": "http://schema.org/publisher",
+    "@type": "@id"
+  },
+  "vote_events": {
+    "@reverse": "http://schema.org/organizer",
+    "@type": "@id"
+  },
+  "votes": {
+    "@reverse": "http://schema.org/agent",
+    "@type": "@id"
+  },
+  "children": {
+    "@id": "http://www.w3.org/ns/org#hasSubOrganization",
     "@type": "@id"
   },
   "created_at": {

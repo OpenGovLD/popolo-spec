@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-03/schema#",
-  "id": "http://popoloproject.com/schemas/person.json#",
+  "id": "http://www.popoloproject.com/schemas/person.json#",
   "title": "Person",
   "description": "A real person, alive or dead",
   "type": "object",
@@ -17,14 +17,14 @@
       "description": "Alternate or former names",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/other_name.json#"
+        "$ref": "http://www.popoloproject.com/schemas/other_name.json#"
       }
     },
     "identifiers": {
       "description": "Issued identifiers",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/identifier.json#"
+        "$ref": "http://www.popoloproject.com/schemas/identifier.json#"
       }
     },
     "family_name": {
@@ -95,21 +95,42 @@
       "description": "Means of contacting the person",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/contact_detail.json#"
+        "$ref": "http://www.popoloproject.com/schemas/contact_detail.json#"
       }
     },
     "links": {
       "description": "URLs to documents about the person",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/link.json#"
+        "$ref": "http://www.popoloproject.com/schemas/link.json#"
       }
     },
     "memberships": {
-      "description": "Memberships",
+      "description": "The person's memberships",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/membership.json#"
+        "$ref": "http://www.popoloproject.com/schemas/membership.json#"
+      }
+    },
+    "motions": {
+      "description": "The person's motions",
+      "type": "array",
+      "items": {
+        "$ref": "http://www.popoloproject.com/schemas/motion.json#"
+      }
+    },
+    "speeches": {
+      "description": "The person's speeches",
+      "type": "array",
+      "items": {
+        "$ref": "http://www.popoloproject.com/schemas/speech.json#"
+      }
+    },
+    "votes": {
+      "description": "Votes cast by the person",
+      "type": "array",
+      "items": {
+        "$ref": "http://www.popoloproject.com/schemas/vote.json#"
       }
     },
     "created_at": {
@@ -123,10 +144,10 @@
       "format": "date-time"
     },
     "sources": {
-      "description": "URLs to documents from which the person is derived",
+      "description": "URLs to documents from which the resource is derived",
       "type": "array",
       "items": {
-        "$ref": "http://popoloproject.com/schemas/link.json#"
+        "$ref": "http://www.popoloproject.com/schemas/link.json#"
       }
     }
   }

@@ -1,17 +1,33 @@
 {
   "Area": "http://www.geonames.org/ontology#Feature",
-  "name": "http://schema.org/name",
+  "name": "http://www.geonames.org/ontology#name",
   "identifier": "http://purl.org/dc/terms/identifier",
   "classification": {
     "@id": "http://www.geonames.org/ontology#featureCode",
     "@type": "@id"
   },
   "parent": {
-    "@id": "http://schema.org/containedIn",
+    "@id": "http://www.geonames.org/ontology#parentFeature",
     "@type": "@id"
   },
   "geometry": {
     "@id": "http://www.w3.org/ns/locn#geometry",
+    "@type": "@id"
+  },
+  "memberships": {
+    "@reverse": "http://www.w3.org/ns/opengov#area",
+    "@type": "@id"
+  },
+  "organizations": {
+    "@reverse": "http://www.w3.org/ns/opengov#area",
+    "@type": "@id"
+  },
+  "posts": {
+    "@reverse": "http://www.w3.org/ns/opengov#area",
+    "@type": "@id"
+  },
+  "children": {
+    "@reverse": "http://www.geonames.org/ontology#parentFeature",
     "@type": "@id"
   },
   "created_at": {

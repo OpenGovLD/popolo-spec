@@ -1,8 +1,24 @@
 {
   "schema": {
+    "organization": {
+      "term": "organizer",
+      "url": "http://schema.org/organizer"
+    },
+    "legislative session": {
+      "term": "superEvent",
+      "url": "http://schema.org/superEvent"
+    },
+    "title": {
+      "term": "name",
+      "url": "http://schema.org/name"
+    },
     "start time": {
       "term": "startDate",
       "url": "http://schema.org/startDate"
+    },
+    "end time": {
+      "term": "endDate",
+      "url": "http://schema.org/endDate"
     }
   },
   "PML": {
@@ -12,8 +28,11 @@
     "identifier": {
       "term": "identifier"
     },
+    "title": {
+      "term": "label"
+    },
     "start time": {
-      "label": "startDate, startTime"
+      "term": "startDate, startTime"
     },
     "end time": {
       "term": "endDate, endTime"
@@ -25,11 +44,32 @@
   "Akoma Ntoso": {
     "Vote event": {
       "term": "voting"
+    },
+    "organization": {
+      "label": "<i>organization</i>"
+    },
+    "legislative session": {
+      "label": "<i>session</i>"
+    },
+    "identifier": {
+      "term": "id"
+    },
+    "start time": {
+      "label": "<i>timeInterval</i>"
+    },
+    "end time": {
+      "label": "<i>timeInterval</i>"
+    },
+    "result": {
+      "term": "outcome"
     }
   },
   "Cornell": {
     "Vote event": {
       "term": "Vote"
+    },
+    "organization": {
+      "term": "hasChamber, hasCommittee"
     },
     "identifier": {
       "term": "hasVoteID"
@@ -38,12 +78,21 @@
       "term": "hasDocument"
     },
     "start time": {
-      "term": "hasVoteDate"
+      "term": "hasStartDate"
+    },
+    "end time": {
+      "term": "hasEndDate"
+    },
+    "result": {
+      "term": "hasOutcome"
     }
   },
   "Brazil": {
     "Vote event": {
       "label": "<i>votação</i>"
+    },
+    "legislative session": {
+      "label": "<i>sessão legislativa</i>"
     },
     "identifier": {
       "term": "NUMVOT"
@@ -51,8 +100,14 @@
     "title": {
       "term": "TEXORDIA"
     },
+    "motion": {
+      "label": "<i>nome da proposição</i>"
+    },
+    "start time": {
+      "term": "DATAVOT"
+    },
     "end time": {
-      "label": "<i>hora final</i>"
+      "label": "<i>data final</i>, <i>hora final</i>"
     },
     "counts": {
       "label": "<i>total de votos</i>"
@@ -76,19 +131,40 @@
     "Vote event": {
       "term": "Vote"
     },
+    "legislative session": {
+      "term": "session"
+    },
     "identifier": {
       "term": "number"
     },
+    "title": {
+      "term": "description"
+    },
     "start time": {
       "term": "date"
+    },
+    "result": {
+      "term": "Decision"
     }
   },
   "Canada (vote detail)": {
     "Vote event": {
       "term": "Vote"
+    },
+    "title": {
+      "term": "Context"
+    },
+    "result": {
+      "term": "Decision"
     }
   },
   "Czech Republic": {
+    "organization": {
+      "term": "id_organ"
+    },
+    "legislative session": {
+      "term": "schuze"
+    },
     "identifier": {
       "term": "cislo"
     },
@@ -97,11 +173,25 @@
     },
     "start time": {
       "term": "datum, čas"
+    },
+    "result": {
+      "term": "vysledek"
+    }
+  },
+  "Georgia": {
+    "Vote event": {
+      "term": "session_x"
+    },
+    "start time": {
+      "term": "date"
     }
   },
   "Germany": {
     "Vote event": {
       "label": "<i>Namentliche Abstimmungen</i>"
+    },
+    "legislative session": {
+      "term": "Sitzungnr"
     },
     "identifier": {
       "term": "Abstimmnr"
@@ -117,6 +207,9 @@
     "start time": {
       "term": "vote-date, vote-time"
     },
+    "result": {
+      "term": "result"
+    },
     "counts": {
       "term": "vote-summary"
     },
@@ -124,15 +217,66 @@
       "term": "individual-votes"
     }
   },
+  "Ireland": {
+    "organization": {
+      "term": "forum"
+    },
+    "legislative session": {
+      "term": "dailnumber"
+    },
+    "identifier": {
+      "term": "votenumber"
+    }
+  },
+  "Italy": {
+    "Vote event": {
+      "term": "votazione",
+      "url": "http://dati.camera.it/ocd/reference_document/#votazione"
+    },
+    "legislative session": {
+      "term": "rif_seduta",
+      "url": "http://dati.camera.it/ocd/reference_document/#rif_seduta"
+    },
+    "result": {
+      "term": "approvato",
+      "url": "http://dati.camera.it/ocd/reference_document/#approvato"
+    }
+  },
+  "Norway (XML)": {
+    "Vote event": {
+      "term": "sak_votering"
+    },
+    "identifier": {
+      "term": "dagsorden_sak_nummer"
+    },
+    "motion": {
+      "term": "votering_tema"
+    },
+    "start time": {
+      "term": "votering_tid"
+    },
+    "result": {
+      "term": "vedtatt"
+    },
+    "votes": {
+      "term": "voteringsresultat_liste"
+    }
+  },
   "Spain": {
     "Vote event": {
       "term": "Resultado"
+    },
+    "legislative session": {
+      "term": "Sesion"
     },
     "identifier": {
       "term": "NumeroVotacion"
     },
     "start time": {
       "term": "Fecha"
+    },
+    "result": {
+      "term": "Asentimiento"
     },
     "counts": {
       "term": "Totales"
@@ -144,6 +288,12 @@
   "Sweden": {
     "Vote event": {
       "term": "votering"
+    },
+    "organization": {
+      "term": "beteckning"
+    },
+    "legislative session": {
+      "term": "rm"
     },
     "identifier": {
       "term": "votering_id"
@@ -158,6 +308,12 @@
   "Switzerland": {
     "Vote event": {
       "term": "affairVote"
+    },
+    "organization": {
+      "term": "council"
+    },
+    "legislative session": {
+      "term": "session"
     },
     "identifier": {
       "term": "registrationNumber"
@@ -182,19 +338,37 @@
     "Vote event": {
       "label": "<i>recorded vote</i>"
     },
+    "organization": {
+      "term": "Committee"
+    },
     "start time": {
       "term": "Date/Time"
+    },
+    "result": {
+      "term": "Result"
     }
   },
   "US (House)": {
     "Vote event": {
       "term": "rollcall-vote"
     },
+    "organization": {
+      "term": "chamber"
+    },
+    "legislative session": {
+      "term": "congress, session"
+    },
     "identifier": {
       "term": "rollcall-num"
     },
+    "title": {
+      "term": "vote-desc"
+    },
     "start time": {
-      "label": "action-date, action-time"
+      "term": "action-date, action-time"
+    },
+    "result": {
+      "term": "vote-result"
     },
     "counts": {
       "term": "vote-totals"
@@ -203,18 +377,50 @@
       "term": "vote-data"
     }
   },
-  "US (Senate)": {
+  "US (Senate list)": {
     "Vote event": {
-      "term": "roll_call_vote"
+      "term": "vote"
+    },
+    "legislative session": {
+      "term": "congress, session"
     },
     "identifier": {
       "term": "vote_number"
     },
+    "title": {
+      "term": "title"
+    },
     "start time": {
       "term": "vote_date"
     },
+    "result": {
+      "term": "result"
+    },
     "counts": {
-      "term": "vote_tally, count"
+      "term": "vote_tally"
+    }
+  },
+  "US (Senate detail)": {
+    "Vote event": {
+      "term": "roll_call_vote"
+    },
+    "legislative session": {
+      "term": "congress, session"
+    },
+    "identifier": {
+      "term": "vote_number"
+    },
+    "title": {
+      "term": "vote_title"
+    },
+    "start time": {
+      "term": "vote_date"
+    },
+    "result": {
+      "term": "vote_result"
+    },
+    "counts": {
+      "term": "count"
     },
     "votes": {
       "term": "members"

@@ -11,8 +11,6 @@ id: data
   <li class="active">Inventory of terms from survey</li>
 </ul>
 
-* The [PML Schema](http://www.liparm.ac.uk/?page_id=103) reuses the properties `sources`, `externalLinks`, `startDate` and `endDate` across classes.
-
 # Namespaces
 
 <table>
@@ -33,10 +31,26 @@ id: data
     </tr>
     <tr>
       <td>
+        <code>bf</code>
+      </td>
+      <td>
+        <a href='http://bibframe.org/vocab/'>http://bibframe.org/vocab/</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>con</code>
       </td>
       <td>
         <a href='http://www.w3.org/2000/10/swap/pim/contact#'>http://www.w3.org/2000/10/swap/pim/contact#</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>cwork</code>
+      </td>
+      <td>
+        <a href='http://www.bbc.co.uk/ontologies/creativework/'>http://www.bbc.co.uk/ontologies/creativework/</a>
       </td>
     </tr>
     <tr>
@@ -129,6 +143,14 @@ id: data
     </tr>
     <tr>
       <td>
+        <code>ocd</code>
+      </td>
+      <td>
+        <a href='http://dati.camera.it/ocd/'>http://dati.camera.it/ocd/</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>oparl</code>
       </td>
       <td>
@@ -203,7 +225,27 @@ id: data
 </table>
 
 
-<h1 id="Person">Person</h1>
+# Classes
+
+* People and organizations
+  * [Person](#Person)
+  * [Organization](#Organization)
+  * [Membership](#Membership)
+  * [Post](#Post)
+  * [Address](#Address)
+* Motions and voting
+  * [Motion](#Motion)
+  * [Vote event](#VoteEvent)
+  * [Count](#Count)
+  * [Vote](#Vote)
+* Geography
+  * [Area](#Area)
+* Works
+  * [Speech](#Speech)
+
+* The [PML Schema](http://www.liparm.ac.uk/?page_id=103) reuses the properties `sources`, `externalLinks`, `startDate` and `endDate` across classes.
+
+<h2 id="Person">Person</h2>
 
 * vCard's terms are from the [RDF encoding](http://www.w3.org/TR/vcard-rdf/) of vCard 4.0, except for `DEATHDATE` which is from [RFC 6474](http://tools.ietf.org/html/rfc6474).
 
@@ -1273,7 +1315,7 @@ id: data
 </div>
 
 
-<h1 id="Organization">Organization</h1>
+<h2 id="Organization">Organization</h2>
 
 * Schema.org adds a new property for each identifier scheme, e.g. `duns`, `globalLocationNumber`, `taxID` and `vatID`, and each classification scheme, e.g. `isicV4` and `naics`.
 * In PML Schema, organizational hierarchies can have a maximum depth of five.
@@ -1288,7 +1330,9 @@ id: data
         <td>alternate name</td>
         <td>identifier</td>
         <td>classification</td>
+        <td>parent organization</td>
         <td>child organization</td>
+        <td>description</td>
         <td>founding date</td>
         <td>dissolution date</td>
         <td>image</td>
@@ -1319,9 +1363,13 @@ id: data
         <td>
         </td>
         <td>
+        </td>
+        <td>
           <a href='http://xmlns.com/foaf/spec/#term_member'>
             member
           </a>
+        </td>
+        <td>
         </td>
         <td>
           <a href='http://xmlns.com/foaf/spec/#term_'>
@@ -1363,8 +1411,18 @@ id: data
           </a>
         </td>
         <td>
+          <a href='http://schema.org/memberOf'>
+            memberOf
+          </a>
+        </td>
+        <td>
           <a href='http://schema.org/member'>
             member
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/description'>
+            description
           </a>
         </td>
         <td>
@@ -1410,9 +1468,16 @@ id: data
           </a>
         </td>
         <td>
+          <a href='http://www.w3.org/TR/vocab-org/#org:subOrganizationOf'>
+            <abbr title='subOrganizationOf'>subOrganization…</abbr>
+          </a>
+        </td>
+        <td>
           <a href='http://www.w3.org/TR/vocab-org/#org:hasSubOrganization'>
             <abbr title='hasSubOrganization'>hasSubOrganizat…</abbr>
           </a>
+        </td>
+        <td>
         </td>
         <td>
           see <code>foaf</code>
@@ -1445,6 +1510,10 @@ id: data
           <a href='http://www.w3.org/TR/vcard-rdf/#d4e516'>
             hasUID
           </a>
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -1486,13 +1555,20 @@ id: data
           </a>
         </td>
         <td>
-          <a href='http://www.semanticdesktop.org/ontologies/nie/#identifier'>
+          <a href='http://www.semanticdesktop.org/ontologies/2007/01/19/nie/#identifier'>
             nie:identifier
           </a>
         </td>
         <td>
         </td>
         <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://www.semanticdesktop.org/ontologies/2007/01/19/nie/#description'>
+            nie:description
+          </a>
         </td>
         <td>
           <a href='http://www.semanticdesktop.org/ontologies/2007/03/22/nco/#birthDate'>
@@ -1542,6 +1618,13 @@ id: data
           </a>
         </td>
         <td>
+        </td>
+        <td>
+          <a href='http://www.w3.org/2000/01/rdf-schema#comment'>
+            rdfs:comment
+          </a>
+        </td>
+        <td>
           <a href='http://dev.poderopedia.com/documentation/index#bio:birth'>
             bio:birth
           </a>
@@ -1584,6 +1667,10 @@ id: data
         </td>
         <td>
         </td>
+        <td>
+        </td>
+        <td>
+        </td>
       </tr>
       <tr>
         <th scope='row'>
@@ -1612,8 +1699,15 @@ id: data
           </a>
         </td>
         <td>
-          <a href='http://tools.ietf.org/html/rfc4524#section-2.17'>
+        </td>
+        <td>
+          <a href='http://tools.ietf.org/html/rfc4519#section-2.17'>
             member
+          </a>
+        </td>
+        <td>
+          <a href='http://tools.ietf.org/html/rfc4519#section-2.5'>
+            description
           </a>
         </td>
         <td>
@@ -1655,6 +1749,16 @@ id: data
           </a>
         </td>
         <td>
+          <a href='http://docs.oasis-open.org/ciq/v3.0/specs/ciq-specs-v3.html#_Toc193533310'>
+            Relationship
+          </a>
+        </td>
+        <td>
+          <a href='http://docs.oasis-open.org/emergency/edxl-have/cs01/xPIL.xsd'>
+            FreeTextLines
+          </a>
+        </td>
+        <td>
           <a href='http://docs.oasis-open.org/emergency/edxl-have/cs01/xPIL.xsd'>
             Date
           </a>
@@ -1690,6 +1794,11 @@ id: data
           <abbr title='OrganizationParent'>Parent</abbr>
         </td>
         <td>
+        </td>
+        <td>
+          <abbr title='OrganizationDescriptionText'>DescriptionText</abbr>
+        </td>
+        <td>
           <abbr title='OrganizationEstablishedDate'>EstablishedDate</abbr>
         </td>
         <td>
@@ -1716,6 +1825,10 @@ id: data
         </td>
         <td>
           hasGroupTopic
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -1749,6 +1862,10 @@ id: data
         <td>
         </td>
         <td>
+        </td>
+        <td>
+        </td>
+        <td>
           startDate
         </td>
         <td>
@@ -1762,7 +1879,7 @@ id: data
 </div>
 
 
-<h1 id="Membership">Membership</h1>
+<h2 id="Membership">Membership</h2>
 
 * In PML Schema, memberships are embedded on `person` objects.
 
@@ -1772,6 +1889,7 @@ id: data
       <tr>
         <th scope='row'>Term</th>
         <td>Membership</td>
+        <td>label</td>
         <td>role</td>
         <td>person</td>
         <td>organization</td>
@@ -1788,6 +1906,11 @@ id: data
         <td>
           <a href='http://www.w3.org/TR/vocab-org/#org:Membership'>
             Membership
+          </a>
+        </td>
+        <td>
+          <a href='http://www.w3.org/TR/skos-reference/#labels'>
+            skos:prefLabel
           </a>
         </td>
         <td>
@@ -1828,6 +1951,8 @@ id: data
           </a>
         </td>
         <td>
+        </td>
+        <td>
           <a href='http://dev.poderopedia.com/documentation/index#poder:hasWorkRole'>
             hasWorkRole
           </a>
@@ -1863,6 +1988,8 @@ id: data
           Membership
         </td>
         <td>
+        </td>
+        <td>
           hasMemberRole
         </td>
         <td>
@@ -1888,6 +2015,9 @@ id: data
           function
         </td>
         <td>
+          label
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -1909,7 +2039,7 @@ id: data
 </div>
 
 
-<h1 id="Post">Post</h1>
+<h2 id="Post">Post</h2>
 
 * PML Schema has the properties `startDate` and `endDate` for the dates of creation and elimination.
 
@@ -1920,6 +2050,7 @@ id: data
         <th scope='row'>Term</th>
         <td>Post</td>
         <td>label</td>
+        <td>alternate label</td>
         <td>role</td>
         <td>organization</td>
         <td>person</td>
@@ -1932,6 +2063,8 @@ id: data
         <th scope='row'>
           <code>schema</code>
         </th>
+        <td>
+        </td>
         <td>
         </td>
         <td>
@@ -1965,6 +2098,11 @@ id: data
         <td>
           <a href='http://www.w3.org/TR/skos-reference/#labels'>
             skos:prefLabel
+          </a>
+        </td>
+        <td>
+          <a href='http://www.w3.org/TR/skos-reference/#labels'>
+            skos:altLabel
           </a>
         </td>
         <td>
@@ -2002,6 +2140,8 @@ id: data
           </a>
         </td>
         <td>
+        </td>
+        <td>
           <a href='http://www.semanticdesktop.org/ontologies/2007/03/22/nco/#role'>
             role
           </a>
@@ -2026,6 +2166,8 @@ id: data
           <a href='http://www.ontotext.com/protontop#JobPosition'>
             JobPosition
           </a>
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -2067,6 +2209,8 @@ id: data
           </a>
         </td>
         <td>
+        </td>
+        <td>
           <a href='http://tools.ietf.org/html/rfc4519#section-2.38'>
             title
           </a>
@@ -2096,6 +2240,8 @@ id: data
         <td>
         </td>
         <td>
+        </td>
+        <td>
           <abbr title='EmployeePositionName'>PositionName</abbr>
         </td>
         <td>
@@ -2115,6 +2261,8 @@ id: data
         </th>
         <td>
           Role
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -2145,6 +2293,8 @@ id: data
         <td>
         </td>
         <td>
+        </td>
+        <td>
           category
         </td>
         <td>
@@ -2159,7 +2309,7 @@ id: data
 </div>
 
 
-<h1 id="Address">Address</h1>
+<h2 id="Address">Address</h2>
 
 * To disambiguate between different telephone types, Schema.org adds [faxNumber](http://schema.org/PostalAddress), LDAP adds [mobile](http://tools.ietf.org/html/rfc4524#section-2.18), [pager](http://tools.ietf.org/html/rfc4524#section-2.20) and [facsimileTelephoneNumber](http://tools.ietf.org/html/rfc4519#section-2.10) and NIEM adds `ContactFaxNumber`, `ContactMobileTelephoneNumber` and `ContactPagerNumber`.
 * LDAP adds properties like [homePostalAddress](http://tools.ietf.org/html/rfc4524#section-2.13) to disambiguate between different address types.
@@ -2359,7 +2509,2343 @@ id: data
 </div>
 
 
-<h1 id="Area">Area</h1>
+<h2 id="Motion">Motion</h2>
+
+* Canada has two ways of expressing motions: from the [votes list page](http://www.parl.gc.ca/housechamberbusiness/Chambervotelist.aspx?Language=E) and from the vote detail page.
+* [Czech Republic](http://www.psp.cz/sqw/hp.sqw?k=1300) publishes data on motions declared confusing.
+* [Ireland](http://oireachtasdebates.oireachtas.ie/debates%20authoring/debateswebpack.nsf/%28votesasxmlDail%29?openview) doesn't distinguish between motions and vote events.
+* [Italy](http://dati.camera.it/ocd/reference_document/) doesn't define a Motion class, but we list the properties shared with the VoteEvent class.
+* Norway publishes voting records as [CSV](https://data.stortinget.no/bygger/votering?pr=59583&dt=Table&vo=5092) and [XML](http://data.stortinget.no/eksport).
+* [Sweden](http://data.riksdagen.se/Data/Voteringar/) classifies motions as `sakfrågan` or `motivfrågan`. "rm" is an abbreviation of "Riksmöte".
+* Switzerland offers an [API](http://ws.parlament.ch/) and [bulk downloads](http://www.parlament.ch/f/wahlen-abstimmungen/abstimmungen-im-parlament/Pages/abstimmung-nr-xml.aspx).
+* Canada, [Germany](http://www.bundestag.de/bundestag/plenum/abstimmung/2014), the [US House](http://clerk.house.gov/legislative/legvotes.html) and the [US Senate](http://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_113_2.htm) have terms for the session's legislature: `parliament`, `Wahlperiode`, `congress` and `congress`, respectively.
+* Canada and [Toronto](http://app.toronto.ca/tmmis/getAdminReport.do?function=prepareMemberVoteReport) have terms for meetings: `sitting` and `meeting`, respectively.
+
+<div class='table-responsive'>
+  <table class='table table-striped table-hover table-condensed'>
+    <thead>
+      <tr>
+        <th scope='row'>Term</th>
+        <td>Motion</td>
+        <td>organization</td>
+        <td>legislative session</td>
+        <td>creator</td>
+        <td>identifier</td>
+        <td>title</td>
+        <td>description</td>
+        <td>text</td>
+        <td>classification</td>
+        <td>object</td>
+        <td>proposal date</td>
+        <td>publication date</td>
+        <td>resolution date</td>
+        <td>requirement</td>
+        <td>result</td>
+        <td>vote events</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope='row'>
+          <code>dcterms</code>
+        </th>
+        <td>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/publisher'>
+            publisher
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/creator'>
+            creator
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/identifier'>
+            identifier
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/title'>
+            title
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/description'>
+            description
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/references'>
+            references
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/dateSubmitted'>
+            dateSubmitted
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/issued'>
+            issued
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/dateAccepted'>
+            dateAccepted
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          <code>schema</code>
+        </th>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/publisher'>
+            publisher
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/creator'>
+            creator
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/name'>
+            name
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/description'>
+            description
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/text'>
+            text
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/datePublished'>
+            datePublished
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          PML
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='calendarObjectID'>calendarObjectI…</abbr>
+        </td>
+        <td>
+          contributorID
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          label
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='proceedingsObjectID'>proceedingsObje…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          AkomaNtoso
+        </th>
+        <td>
+        </td>
+        <td>
+          organization
+        </td>
+        <td>
+          session
+        </td>
+        <td>
+        </td>
+        <td>
+          id
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          refersTo
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          date
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          quorum
+        </td>
+        <td>
+          outcome
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Cornell
+        </th>
+        <td>
+        </td>
+        <td>
+          <abbr title='hasChamber, hasCommittee'>hasChamber, has…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          hasIdentifier
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          hasDocument
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='hasRelatedDocument'>hasRelatedDocum…</abbr>
+        </td>
+        <td>
+          <abbr title='hasDateIntroduced'>hasDateIntroduc…</abbr>
+        </td>
+        <td>
+          <abbr title='hasDateOfPublication'>hasDateOfPublic…</abbr>
+        </td>
+        <td>
+          hasDateEnacted
+        </td>
+        <td>
+        </td>
+        <td>
+          hasOutcome
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Brazil
+        </th>
+        <td>
+          <i>proposição</i>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='sessão legislativa'><i>sessão legislat…</i></abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <i>nome</i>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (vote list)
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          session
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+        </td>
+        <td>
+          RelatedBill
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Decision
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (vote detail)
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Sponsor
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Context
+        </td>
+        <td>
+        </td>
+        <td>
+          RelatedBill
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Decision
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Czech Republic
+        </th>
+        <td>
+        </td>
+        <td>
+          id_organ
+        </td>
+        <td>
+          schuze
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          bod
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          kvorum
+        </td>
+        <td>
+          vysledek
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Georgia
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          sessions
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Germany
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Sitzungnr
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Hong Kong
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          mover
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          motion
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          result
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Ireland
+        </th>
+        <td>
+          vote
+        </td>
+        <td>
+          forum
+        </td>
+        <td>
+          dailnumber
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          votetitle
+        </td>
+        <td>
+        </td>
+        <td>
+          votetext
+        </td>
+        <td>
+          category
+        </td>
+        <td>
+        </td>
+        <td>
+          votedatetime
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Italy
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#rif_seduta'>
+            rif_seduta
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#approvato'>
+            approvato
+          </a>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Norway (XML)
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          vedtatt
+        </td>
+        <td>
+          <abbr title='sak_votering_liste'>sak_votering_li…</abbr>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Spain
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Sesion
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          TextoExpediente
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Asentimiento
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Sweden
+        </th>
+        <td>
+          <i>förslagspunkt</i>
+        </td>
+        <td>
+          beteckning
+        </td>
+        <td>
+          rm
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          avser
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Switzerland
+        </th>
+        <td>
+          Affair
+        </td>
+        <td>
+          council
+        </td>
+        <td>
+          session
+        </td>
+        <td>
+          author
+        </td>
+        <td>
+          id
+        </td>
+        <td>
+          title
+        </td>
+        <td>
+          description
+        </td>
+        <td>
+          text
+        </td>
+        <td>
+          affairType
+        </td>
+        <td>
+        </td>
+        <td>
+          handling
+        </td>
+        <td>
+          deposit
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          affairVotes
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Toronto
+        </th>
+        <td>
+          <i>motion</i>
+        </td>
+        <td>
+          Committee
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Motion Type
+        </td>
+        <td>
+          Agenda Item #
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='Vote Description'>Vote Descriptio…</abbr>
+        </td>
+        <td>
+          Result
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (House)
+        </th>
+        <td>
+        </td>
+        <td>
+          chamber
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          vote-question
+        </td>
+        <td>
+        </td>
+        <td>
+          vote-desc
+        </td>
+        <td>
+          vote-type
+        </td>
+        <td>
+          legis-num
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          vote-result
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (Senate list)
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          question
+        </td>
+        <td>
+        </td>
+        <td>
+          title
+        </td>
+        <td>
+        </td>
+        <td>
+          issue
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          result
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (Senate detail)
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          question
+        </td>
+        <td>
+        </td>
+        <td>
+          vote_title
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='document, amendment'>document, amend…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='majority_requirement'>majority_requir…</abbr>
+        </td>
+        <td>
+          vote_result
+        </td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="VoteEvent">Vote event</h2>
+
+* Canada has three ways of expressing votes: in the [Hansard](http://www.parl.gc.ca/HouseChamberBusiness/ChamberSittings.aspx?View=H&Language=E), from the [votes list page](http://www.parl.gc.ca/housechamberbusiness/Chambervotelist.aspx?Language=E) and from the vote detail page.
+* Czech Republic records repeat votes, along with the person requesting the repeat.
+* Toronto publishes reports for each voter.
+* Switzerland has the properties `meaningYes` and `meaningNo` for the meaning of voting "Yes" or "No".
+
+<div class='table-responsive'>
+  <table class='table table-striped table-hover table-condensed'>
+    <thead>
+      <tr>
+        <th scope='row'>Term</th>
+        <td>Vote event</td>
+        <td>organization</td>
+        <td>legislative session</td>
+        <td>identifier</td>
+        <td>title</td>
+        <td>motion</td>
+        <td>start time</td>
+        <td>end time</td>
+        <td>result</td>
+        <td>counts</td>
+        <td>votes</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope='row'>
+          <code>schema</code>
+        </th>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/organizer'>
+            organizer
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/superEvent'>
+            superEvent
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/name'>
+            name
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/startDate'>
+            startDate
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/endDate'>
+            endDate
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          PML
+        </th>
+        <td>
+          voteEvent
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          identifier
+        </td>
+        <td>
+          label
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='startDate, startTime'>startDate, star…</abbr>
+        </td>
+        <td>
+          <abbr title='endDate, endTime'>endDate, endTim…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          options
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Akoma Ntoso
+        </th>
+        <td>
+          voting
+        </td>
+        <td>
+          <i>organization</i>
+        </td>
+        <td>
+          <i>session</i>
+        </td>
+        <td>
+          id
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <i>timeInterval</i>
+        </td>
+        <td>
+          <i>timeInterval</i>
+        </td>
+        <td>
+          outcome
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Cornell
+        </th>
+        <td>
+          Vote
+        </td>
+        <td>
+          <abbr title='hasChamber, hasCommittee'>hasChamber, has…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          hasVoteID
+        </td>
+        <td>
+        </td>
+        <td>
+          hasDocument
+        </td>
+        <td>
+          hasStartDate
+        </td>
+        <td>
+          hasEndDate
+        </td>
+        <td>
+          hasOutcome
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Brazil
+        </th>
+        <td>
+          <i>votação</i>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='sessão legislativa'><i>sessão legislat…</i></abbr>
+        </td>
+        <td>
+          NUMVOT
+        </td>
+        <td>
+          TEXORDIA
+        </td>
+        <td>
+          <abbr title='nome da proposição'><i>nome da proposi…</i></abbr>
+        </td>
+        <td>
+          DATAVOT
+        </td>
+        <td>
+          <i>data final</i>, <i>hora final</i>
+        </td>
+        <td>
+        </td>
+        <td>
+          <i>total de votos</i>
+        </td>
+        <td>
+          <i>detalhe</i>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (Hansard)
+        </th>
+        <td>
+          Division
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          DivisionNumber
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='SubjectOfBusiness'>SubjectOfBusine…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (vote list)
+        </th>
+        <td>
+          Vote
+        </td>
+        <td>
+        </td>
+        <td>
+          session
+        </td>
+        <td>
+          number
+        </td>
+        <td>
+          description
+        </td>
+        <td>
+        </td>
+        <td>
+          date
+        </td>
+        <td>
+        </td>
+        <td>
+          Decision
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (vote detail)
+        </th>
+        <td>
+          Vote
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Context
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Decision
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Czech Republic
+        </th>
+        <td>
+        </td>
+        <td>
+          id_organ
+        </td>
+        <td>
+          schuze
+        </td>
+        <td>
+          cislo
+        </td>
+        <td>
+          nazev_dlouhy
+        </td>
+        <td>
+        </td>
+        <td>
+          datum, čas
+        </td>
+        <td>
+        </td>
+        <td>
+          vysledek
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Georgia
+        </th>
+        <td>
+          session_x
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          date
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Germany
+        </th>
+        <td>
+          <abbr title='Namentliche Abstimmungen'><i>Namentliche Abs…</i></abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          Sitzungnr
+        </td>
+        <td>
+          Abstimmnr
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Hong Kong
+        </th>
+        <td>
+          vote
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          number
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='vote-date, vote-time'>vote-date, vote…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          result
+        </td>
+        <td>
+          vote-summary
+        </td>
+        <td>
+          <abbr title='individual-votes'>individual-vote…</abbr>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Ireland
+        </th>
+        <td>
+        </td>
+        <td>
+          forum
+        </td>
+        <td>
+          dailnumber
+        </td>
+        <td>
+          votenumber
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Italy
+        </th>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#votazione'>
+            votazione
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#rif_seduta'>
+            rif_seduta
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#approvato'>
+            approvato
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Norway (XML)
+        </th>
+        <td>
+          sak_votering
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='dagsorden_sak_nummer'>dagsorden_sak_n…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          votering_tema
+        </td>
+        <td>
+          votering_tid
+        </td>
+        <td>
+        </td>
+        <td>
+          vedtatt
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='voteringsresultat_liste'>voteringsresult…</abbr>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Spain
+        </th>
+        <td>
+          Resultado
+        </td>
+        <td>
+        </td>
+        <td>
+          Sesion
+        </td>
+        <td>
+          NumeroVotacion
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Fecha
+        </td>
+        <td>
+        </td>
+        <td>
+          Asentimiento
+        </td>
+        <td>
+          Totales
+        </td>
+        <td>
+          Votaciones
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Sweden
+        </th>
+        <td>
+          votering
+        </td>
+        <td>
+          beteckning
+        </td>
+        <td>
+          rm
+        </td>
+        <td>
+          votering_id
+        </td>
+        <td>
+        </td>
+        <td>
+          punkt
+        </td>
+        <td>
+          datum
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Switzerland
+        </th>
+        <td>
+          affairVote
+        </td>
+        <td>
+          council
+        </td>
+        <td>
+          session
+        </td>
+        <td>
+          <abbr title='registrationNumber'>registrationNum…</abbr>
+        </td>
+        <td>
+          divisionText
+        </td>
+        <td>
+          submissionText
+        </td>
+        <td>
+          date
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          totalVotes
+        </td>
+        <td>
+          councillorVotes
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Toronto
+        </th>
+        <td>
+          <i>recorded vote</i>
+        </td>
+        <td>
+          Committee
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Date/Time
+        </td>
+        <td>
+        </td>
+        <td>
+          Result
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (House)
+        </th>
+        <td>
+          rollcall-vote
+        </td>
+        <td>
+          chamber
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+          rollcall-num
+        </td>
+        <td>
+          vote-desc
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='action-date, action-time'>action-date, ac…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          vote-result
+        </td>
+        <td>
+          vote-totals
+        </td>
+        <td>
+          vote-data
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (Senate list)
+        </th>
+        <td>
+          vote
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+          vote_number
+        </td>
+        <td>
+          title
+        </td>
+        <td>
+        </td>
+        <td>
+          vote_date
+        </td>
+        <td>
+        </td>
+        <td>
+          result
+        </td>
+        <td>
+          vote_tally
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (Senate detail)
+        </th>
+        <td>
+          roll_call_vote
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='congress, session'>congress, sessi…</abbr>
+        </td>
+        <td>
+          vote_number
+        </td>
+        <td>
+          vote_title
+        </td>
+        <td>
+        </td>
+        <td>
+          vote_date
+        </td>
+        <td>
+        </td>
+        <td>
+          vote_result
+        </td>
+        <td>
+          count
+        </td>
+        <td>
+          members
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="Count">Count</h2>
+
+* The [Cornell Legal Information Institute Legislative Metadata Project](http://blog.law.cornell.edu/metasausage/downloads-and-related-information/) has explicit properties for counts: `hasYeaTally`, `hasNayTally` and `hasNoVoteTally`.
+* [Brazil](http://www.camara.leg.br/internet/plenario/result/votacao/Layout_ArquivosTXT_presencas_vota%C3%A7%C3%A3o_exportados.pdf) has explicit columns for counts: `SIM`, `NÃO`, `ABSTENÇÃO`, `OBSTRUÇÃO` and `BRANCO`.
+* [Bulgaria](http://www.parliament.bg/bg/plenaryst) has explicit properties for counts: `За`, `Против`, `Въздържали` and `се Гласували`.
+* Canada has explicit properties for counts on its votes list page: `TotalYeas`, `TotalNays` and `TotalPaired`.
+* Czech Republic has explicit properties for counts: `pro`, `proti`, `zdrzel` and `nehlasoval`.
+* [Georgia](http://votes.parliament.ge/en/api/v1) has explicit properties for counts: `yes_votes`, `no_votes`, `abstain_votes` and `absent`.
+* [Hong Kong](http://www.legco.gov.hk/general/english/open-legco/open-data.html) has explicit properties for counts (`present-count`, `yes-count`, `no-count`, and `abstain-count`) and for groups (`functional-constituency` and `geographical-constituency`).
+* Ireland has explicit properties for options: `membersvotedyes`, `membersvotedno` and `membersabsent`.
+* Italy has explicit properties for counts: [`favorevoli`](http://dati.camera.it/ocd/reference_document/#favorevoli), [`contrari`](http://dati.camera.it/ocd/reference_document/#contrari), [`astenuti`](http://dati.camera.it/ocd/reference_document/#astenuti), [`votanti`](http://dati.camera.it/ocd/reference_document/#votanti) and [`presenti`](http://dati.camera.it/ocd/reference_document/#presenti).
+* Norway has explicit properties for counts: `antall_for`, `antall_ikke_tilstede` and `antall_mot`.
+* [Spain](http://www.congreso.es/portal/page/portal/Congreso/Congreso/Actualidad/Votaciones) has explicit properties for counts: `Presentes`, `AFavor`, `EnContra`, `Abstenciones` and `NoVotan`.
+* The US House has explicit properties for counts: `yea-total`, `nay-total`, `present-total` and `not-voting-total`.
+* The US Senate has explicit properties for counts: `yeas`, `nays`, `present` and `absent`.
+
+<div class='table-responsive table-auto'>
+  <table class='table table-striped table-hover table-condensed'>
+    <thead>
+      <tr>
+        <th scope='row'>Term</th>
+        <td>Count</td>
+        <td>option</td>
+        <td>value</td>
+        <td>group</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope='row'>
+          Akoma Ntoso
+        </th>
+        <td>
+          count
+        </td>
+        <td>
+          refersTo
+        </td>
+        <td>
+          value
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Bulgaria
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          ПГ
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (Hansard)
+        </th>
+        <td>
+          DivisionType
+        </td>
+        <td>
+          Type
+        </td>
+        <td>
+          Total
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Ireland
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          number
+        </td>
+        <td>
+          party
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Switzerland
+        </th>
+        <td>
+          totalVote
+        </td>
+        <td>
+          type
+        </td>
+        <td>
+          count
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US House
+        </th>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          party
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="Vote">Vote</h2>
+
+* Brazil has both [DBF files](http://www.camara.leg.br/internet/votacao/listavotacao5404.asp) and [fixed-width text files without headers](http://www.camara.leg.br/internet/plenario/result/votacao/downlvnv54.htm) that follow [a schema](http://www.camara.leg.br/internet/plenario/result/votacao/Layout_ArquivosTXT_presencas_vota%C3%A7%C3%A3o_exportados.pdf).
+* Canada has explicit properties for options on its vote detail page: `Yea`, `Nay` and `Paired`.
+* Germany has explicit properties for options: `ja`, `nein`, `Enthaltung`, `ungültig` and `nichtabgegeben`.
+* Ireland has explicit properties for options: `membersvotedyes`, `membersvotedno` and `membersabsent`.
+* Norway occasionally has explicit properties for options: `For` and `Mot`.
+
+<div class='table-responsive table-auto'>
+  <table class='table table-striped table-hover table-condensed'>
+    <thead>
+      <tr>
+        <th scope='row'>Term</th>
+        <td>Vote</td>
+        <td>voter</td>
+        <td>option</td>
+        <td>political group</td>
+        <td>role</td>
+        <td>area</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope='row'>
+          <code>schema</code>
+        </th>
+        <td>
+          <a href='http://schema.org/ChooseAction'>
+            ChooseAction
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/agent'>
+            agent
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/option'>
+            option
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          PML
+        </th>
+        <td>
+          vote
+        </td>
+        <td>
+          voterID
+        </td>
+        <td>
+          option
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Akoma Ntoso
+        </th>
+        <td>
+          voteAtts
+        </td>
+        <td>
+          by
+        </td>
+        <td>
+          choice
+        </td>
+        <td>
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Brazil
+        </th>
+        <td>
+          <i>voto</i>
+        </td>
+        <td>
+          NOME_PAR
+        </td>
+        <td>
+          VOTO
+        </td>
+        <td>
+          PARTIDO
+        </td>
+        <td>
+        </td>
+        <td>
+          ESTADO
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (Hansard)
+        </th>
+        <td>
+        </td>
+        <td>
+          Affiliation
+        </td>
+        <td>
+          Type
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Canada (vote detail)
+        </th>
+        <td>
+          RecordedVote
+        </td>
+        <td>
+          Participant
+        </td>
+        <td>
+        </td>
+        <td>
+          Party
+        </td>
+        <td>
+        </td>
+        <td>
+          Constituency
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Czech Republic
+        </th>
+        <td>
+        </td>
+        <td>
+          id_poslanec
+        </td>
+        <td>
+          vysledek
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Georgia
+        </th>
+        <td>
+        </td>
+        <td>
+          member
+        </td>
+        <td>
+          vote
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Germany
+        </th>
+        <td>
+        </td>
+        <td>
+          Bezeichnung
+        </td>
+        <td>
+        </td>
+        <td>
+          Fraktion/Gruppe
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Hong Kong
+        </th>
+        <td>
+        </td>
+        <td>
+          member
+        </td>
+        <td>
+          vote
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Ireland
+        </th>
+        <td>
+        </td>
+        <td>
+          member
+        </td>
+        <td>
+        </td>
+        <td>
+          party
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Italy
+        </th>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#voto'>
+            voto
+          </a>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#rif_deputato'>
+            rif_deputato
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/reference_document/#rif_gruppoParlamentare'>
+            <abbr title='rif_gruppoParlamentare'>rif_gruppoParla…</abbr>
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Norway (CSV)
+        </th>
+        <td>
+        </td>
+        <td>
+          Navn
+        </td>
+        <td>
+          Votering
+        </td>
+        <td>
+          Parti
+        </td>
+        <td>
+        </td>
+        <td>
+          Fylke
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Norway (XML)
+        </th>
+        <td>
+          <abbr title='representant_voteringsresultat'>representant_vo…</abbr>
+        </td>
+        <td>
+          representant
+        </td>
+        <td>
+          votering
+        </td>
+        <td>
+          parti
+        </td>
+        <td>
+        </td>
+        <td>
+          fylke
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Spain
+        </th>
+        <td>
+          Votacion
+        </td>
+        <td>
+          Diputado
+        </td>
+        <td>
+          Voto
+        </td>
+        <td>
+          Grupo
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Sweden
+        </th>
+        <td>
+        </td>
+        <td>
+          namn
+        </td>
+        <td>
+          rost
+        </td>
+        <td>
+          parti
+        </td>
+        <td>
+        </td>
+        <td>
+          valkrets
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Switzerland
+        </th>
+        <td>
+          councillorVote
+        </td>
+        <td>
+          <i>councillor</i>
+        </td>
+        <td>
+          decision
+        </td>
+        <td>
+          <i>faction</i>
+        </td>
+        <td>
+        </td>
+        <td>
+          <i>canton</i>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          Toronto
+        </th>
+        <td>
+          <i>vote</i>
+        </td>
+        <td>
+          <i>member</i>
+        </td>
+        <td>
+          Vote
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (House)
+        </th>
+        <td>
+          recorded-vote
+        </td>
+        <td>
+          legislator
+        </td>
+        <td>
+          vote
+        </td>
+        <td>
+          party
+        </td>
+        <td>
+          role
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          US (Senate)
+        </th>
+        <td>
+          member
+        </td>
+        <td>
+          member_full
+        </td>
+        <td>
+          vote_cast
+        </td>
+        <td>
+          party
+        </td>
+        <td>
+        </td>
+        <td>
+          state
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="Area">Area</h2>
 
 * Schema.org adds a new property for each identifier scheme, e.g. `globalLocationNumber`, and each classification scheme, e.g. `isicV4`.
 * FAO adds a new property for each identifier scheme, e.g. `codeDBPediaID`.
@@ -2373,7 +4859,7 @@ id: data
         <td>name</td>
         <td>identifier</td>
         <td>classification</td>
-        <td>parent_id</td>
+        <td>parent area</td>
         <td>geometry</td>
       </tr>
     </thead>
@@ -2524,8 +5010,8 @@ id: data
           </a>
         </td>
         <td>
-          <a href='http://www.geonames.org/ontology#featureClass'>
-            featureClass
+          <a href='http://www.geonames.org/ontology#featureCode'>
+            featureCode
           </a>
         </td>
         <td>
@@ -2640,35 +5126,32 @@ id: data
 </div>
 
 
-<h1 id="Motion">Motion</h1>
+<h2 id="Speech">Speech</h2>
 
-* Canada has two ways of expressing motions: from the [votes list page](http://www.parl.gc.ca/housechamberbusiness/Chambervotelist.aspx?Language=E) and from the vote detail page.
-* [Czech Republic](http://www.psp.cz/sqw/hp.sqw?k=1300) publishes data on motions declared confusing.
-* [Sweden](http://data.riksdagen.se/Data/Voteringar/) classifies motions as `sakfrågan` or `motivfrågan`. "rm" is an abbreviation of "Riksmöte".
-* Switzerland offers an [API](http://ws.parlament.ch/) and [bulk downloads](http://www.parlament.ch/f/wahlen-abstimmungen/abstimmungen-im-parlament/Pages/abstimmung-nr-xml.aspx).
-* Canada, [Germany](http://www.bundestag.de/bundestag/plenum/abstimmung/2014), the [US House](http://clerk.house.gov/legislative/legvotes.html) and the [US Senate](http://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_113_2.htm) have terms for the session's legislature: `parliament`, `Wahlperiode`, `congress` and `congress`, respectively.
-* Canada and [Toronto](http://app.toronto.ca/tmmis/getAdminReport.do?function=prepareMemberVoteReport) have terms for meetings: `sitting` and `meeting`, respectively.
+* The Akoma Ntoso terms are from [`speechAtts`](http://examples.akomantoso.org/categorical.html#speechAttsAG), [`show`](http://examples.akomantoso.org/categorical.html#showAG) and [`ANcontainers`](http://examples.akomantoso.org/categorical.html#ANcontainersEG).
 
 <div class='table-responsive'>
   <table class='table table-striped table-hover table-condensed'>
     <thead>
       <tr>
         <th scope='row'>Term</th>
-        <td>Motion</td>
-        <td>organization</td>
-        <td>session</td>
-        <td>creator</td>
-        <td>title</td>
-        <td>description</td>
+        <td>Speech</td>
+        <td>speaker</td>
+        <td>role</td>
+        <td>label</td>
+        <td>addressee</td>
         <td>text</td>
+        <td>audio</td>
+        <td>video</td>
+        <td>start time</td>
+        <td>end time</td>
+        <td>title</td>
         <td>classification</td>
-        <td>object</td>
-        <td>proposal date</td>
-        <td>publication date</td>
-        <td>resolution date</td>
-        <td>requirement</td>
-        <td>result</td>
-        <td>vote events</td>
+        <td>keywords</td>
+        <td>language</td>
+        <td>position</td>
+        <td>event</td>
+        <td>group</td>
       </tr>
     </thead>
     <tbody>
@@ -2677,13 +5160,9 @@ id: data
           <code>dcterms</code>
         </th>
         <td>
-        </td>
-        <td>
-          <a href='http://purl.org/dc/terms/publisher'>
-            publisher
+          <a href='http://purl.org/dc/dcmitype/Text'>
+            Text
           </a>
-        </td>
-        <td>
         </td>
         <td>
           <a href='http://purl.org/dc/terms/creator'>
@@ -2695,28 +5174,171 @@ id: data
         <td>
         </td>
         <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <a href='http://purl.org/dc/terms/references'>
-            references
+          <a href='http://purl.org/dc/terms/audience'>
+            audience
           </a>
         </td>
         <td>
-          <a href='http://purl.org/dc/terms/dateSubmitted'>
-            dateSubmitted
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/date'>
+            date
           </a>
         </td>
         <td>
-          <a href='http://purl.org/dc/terms/issued'>
-            issued
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/title'>
+            title
           </a>
         </td>
         <td>
-          <a href='http://purl.org/dc/terms/dateAccepted'>
-            dateAccepted
+          <a href='http://purl.org/dc/terms/type'>
+            type
           </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/subject'>
+            subject
+          </a>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/language'>
+            language
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://purl.org/dc/terms/isPartOf'>
+            isPartOf
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          <code>schema</code>
+        </th>
+        <td>
+          <a href='http://schema.org/CreativeWork'>
+            CreativeWork
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/creator'>
+            creator
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/alternateName'>
+            alternateName
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/audience'>
+            audience
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/text'>
+            text
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/audio'>
+            audio
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/video'>
+            video
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/datePublished'>
+            datePublished
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/title'>
+            title
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/additionalType'>
+            additionalType
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/keywords'>
+            keywords
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/inLanguage'>
+            inLanguage
+          </a>
+        </td>
+        <td>
+          <a href='http://schema.org/position'>
+            position
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://schema.org/isPartOf'>
+            isPartOf
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          <code>ocd</code>
+        </th>
+        <td>
+          <a href='http://dati.camera.it/ocd/intervento'>
+            intervento
+          </a>
+        </td>
+        <td>
+          <a href='http://dati.camera.it/ocd/rif_deputato'>
+            rif_deputato
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -2727,19 +5349,15 @@ id: data
       </tr>
       <tr>
         <th scope='row'>
-          <code>schema</code>
+          <code>bf</code>
         </th>
         <td>
-        </td>
-        <td>
-          <a href='http://schema.org/publisher'>
-            publisher
+          <a href='http://bibframe.org/vocab/Text'>
+            Text
           </a>
         </td>
         <td>
-        </td>
-        <td>
-          <a href='http://schema.org/creator'>
+          <a href='http://bibframe.org/vocab/creator'>
             creator
           </a>
         </td>
@@ -2748,8 +5366,8 @@ id: data
         <td>
         </td>
         <td>
-          <a href='http://schema.org/text'>
-            text
+          <a href='http://bibframe.org/vocab/intendedAudience'>
+            <abbr title='intendedAudience'>intendedAudienc…</abbr>
           </a>
         </td>
         <td>
@@ -2759,8 +5377,94 @@ id: data
         <td>
         </td>
         <td>
-          <a href='http://schema.org/datePublished'>
-            datePublished
+          <a href='http://bibframe.org/vocab/creationDate'>
+            creationDate
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/title'>
+            title
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/classification'>
+            classification
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/category'>
+            category
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/language'>
+            language
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/precededBy'>
+            precededBy
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/event'>
+            event
+          </a>
+        </td>
+        <td>
+          <a href='http://bibframe.org/vocab/isPartOf'>
+            isPartOf
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope='row'>
+          <code>cwork</code>
+        </th>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/CreativeWork'>
+            CreativeWork
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/audience'>
+            audience
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/dateCreated'>
+            dateCreated
+          </a>
+        </td>
+        <td>
+        </td>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/title'>
+            title
+          </a>
+        </td>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/category'>
+            category
+          </a>
+        </td>
+        <td>
+          <a href='http://www.bbc.co.uk/ontologies/creativework/tag'>
+            tag
           </a>
         </td>
         <td>
@@ -2777,14 +5481,12 @@ id: data
           PML
         </th>
         <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='calendarObjectID'>calendarObjectI…</abbr>
+          contribution
         </td>
         <td>
           contributorID
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -2796,19 +5498,30 @@ id: data
         <td>
         </td>
         <td>
-          <abbr title='proceedingsObjectID'>proceedingsObje…</abbr>
+        </td>
+        <td>
+          <abbr title='startDate, startTime'>startDate, star…</abbr>
+        </td>
+        <td>
+          <abbr title='endDate, endTime'>endDate, endTim…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          type
+        </td>
+        <td>
+          category
+        </td>
+        <td>
+          lang
         </td>
         <td>
         </td>
         <td>
         </td>
         <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
+          <abbr title='proceedingsObject'>proceedingsObje…</abbr>
         </td>
       </tr>
       <tr>
@@ -2818,1254 +5531,43 @@ id: data
         <td>
         </td>
         <td>
-          organization
-        </td>
-        <td>
-          session
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          refersTo
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          date
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          quorum
-        </td>
-        <td>
-          outcome
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Cornell
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          hasDocument
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='hasRelatedDocument'>hasRelatedDocum…</abbr>
-        </td>
-        <td>
-          <abbr title='hasDateIntroduced'>hasDateIntroduc…</abbr>
-        </td>
-        <td>
-          <abbr title='hasDateOfPublication'>hasDateOfPublic…</abbr>
-        </td>
-        <td>
-          hasDateEnacted
-        </td>
-        <td>
-        </td>
-        <td>
-          hasOutcome
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Brazil
-        </th>
-        <td>
-          <i>proposição</i>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='sessão legislativa'><i>sessão legislat…</i></abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-          <i>nome</i>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (vote list)
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          session
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Description
-        </td>
-        <td>
-        </td>
-        <td>
-          RelatedBill
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Decision
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (vote detail)
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Sponsor
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Context
-        </td>
-        <td>
-        </td>
-        <td>
-          RelatedBill
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Decision
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Czech Republic
-        </th>
-        <td>
-        </td>
-        <td>
-          id_organ
-        </td>
-        <td>
-          schuze
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          bod
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          kvorum
-        </td>
-        <td>
-          vysledek
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Germany
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Sitzungnr
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Hong Kong
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          mover
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          motion
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          result
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Spain
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Sesion
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          TextoExpediente
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Asentimiento
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Sweden
-        </th>
-        <td>
-          <i>Förslagspunkt</i>
-        </td>
-        <td>
-          beteckning
-        </td>
-        <td>
-          rm
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          avser
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Switzerland
-        </th>
-        <td>
-          Affair
-        </td>
-        <td>
-          council
-        </td>
-        <td>
-          session
-        </td>
-        <td>
-          author
-        </td>
-        <td>
-          title
-        </td>
-        <td>
-          description
-        </td>
-        <td>
-          text
-        </td>
-        <td>
-          affairType
-        </td>
-        <td>
-        </td>
-        <td>
-          handling
-        </td>
-        <td>
-          deposit
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          affairVotes
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Toronto
-        </th>
-        <td>
-          <i>motion</i>
-        </td>
-        <td>
-          Committee
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Motion Type
-        </td>
-        <td>
-          Agenda Item #
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='Vote Description'>Vote Descriptio…</abbr>
-        </td>
-        <td>
-          Result
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (House)
-        </th>
-        <td>
-        </td>
-        <td>
-          chamber
-        </td>
-        <td>
-          session
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          vote-question
-        </td>
-        <td>
-        </td>
-        <td>
-          legis-num
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          vote-type
-        </td>
-        <td>
-          vote-result
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (Senate)
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          session
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='title, vote_title'>title, vote_tit…</abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='document, amendment'>document, amend…</abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='majority_requirement'>majority_requir…</abbr>
-        </td>
-        <td>
-          <abbr title='result, vote_result'>result, vote_re…</abbr>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-<h1 id="VoteEvent">Vote event</h1>
-
-* Canada has three ways of expressing votes: in the [Hansard](http://www.parl.gc.ca/HouseChamberBusiness/ChamberSittings.aspx?View=H&Language=E), from the [votes list page](http://www.parl.gc.ca/housechamberbusiness/Chambervotelist.aspx?Language=E) and from the vote detail page.
-* Czech Republic records repeat votes, along with the person requesting the repeat.
-* Toronto publishes reports for each voter.
-* Switzerland has the properties `meaningYes` and `meaningNo` for the meaning of voting "Yes" or "No".
-
-<div class='table-responsive'>
-  <table class='table table-striped table-hover table-condensed'>
-    <thead>
-      <tr>
-        <th scope='row'>Term</th>
-        <td>Vote event</td>
-        <td>identifier</td>
-        <td>title</td>
-        <td>motion</td>
-        <td>session</td>
-        <td>start time</td>
-        <td>end time</td>
-        <td>counts</td>
-        <td>votes</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope='row'>
-          <code>schema</code>
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <a href='http://schema.org/startDate'>
-            startDate
-          </a>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          PML
-        </th>
-        <td>
-          voteEvent
-        </td>
-        <td>
-          identifier
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          startDate, startTime
-        </td>
-        <td>
-          <abbr title='endDate, endTime'>endDate, endTim…</abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-          options
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Akoma Ntoso
-        </th>
-        <td>
-          voting
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Cornell
-        </th>
-        <td>
-          Vote
-        </td>
-        <td>
-          hasVoteID
-        </td>
-        <td>
-        </td>
-        <td>
-          hasDocument
-        </td>
-        <td>
-        </td>
-        <td>
-          hasVoteDate
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Brazil
-        </th>
-        <td>
-          <i>votação</i>
-        </td>
-        <td>
-          NUMVOT
-        </td>
-        <td>
-          TEXORDIA
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <i>hora final</i>
-        </td>
-        <td>
-          <i>total de votos</i>
-        </td>
-        <td>
-          <i>detalhe</i>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (Hansard)
-        </th>
-        <td>
-          Division
-        </td>
-        <td>
-          DivisionNumber
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='SubjectOfBusiness'>SubjectOfBusine…</abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (vote list)
-        </th>
-        <td>
-          Vote
-        </td>
-        <td>
-          number
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          date
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (vote detail)
-        </th>
-        <td>
-          Vote
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Czech Republic
-        </th>
-        <td>
-        </td>
-        <td>
-          cislo
-        </td>
-        <td>
-          nazev_dlouhy
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          datum, čas
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Germany
-        </th>
-        <td>
-          <abbr title='Namentliche Abstimmungen'><i>Namentliche Abs…</i></abbr>
-        </td>
-        <td>
-          Abstimmnr
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Hong Kong
-        </th>
-        <td>
-          vote
-        </td>
-        <td>
-          number
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='vote-date, vote-time'>vote-date, vote…</abbr>
-        </td>
-        <td>
-        </td>
-        <td>
-          vote-summary
-        </td>
-        <td>
-          <abbr title='individual-votes'>individual-vote…</abbr>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Spain
-        </th>
-        <td>
-          Resultado
-        </td>
-        <td>
-          NumeroVotacion
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Fecha
-        </td>
-        <td>
-        </td>
-        <td>
-          Totales
-        </td>
-        <td>
-          Votaciones
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Sweden
-        </th>
-        <td>
-          votering
-        </td>
-        <td>
-          votering_id
-        </td>
-        <td>
-        </td>
-        <td>
-          punkt
-        </td>
-        <td>
-        </td>
-        <td>
-          datum
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Switzerland
-        </th>
-        <td>
-          affairVote
-        </td>
-        <td>
-          <abbr title='registrationNumber'>registrationNum…</abbr>
-        </td>
-        <td>
-          divisionText
-        </td>
-        <td>
-          submissionText
-        </td>
-        <td>
-        </td>
-        <td>
-          date
-        </td>
-        <td>
-        </td>
-        <td>
-          totalVotes
-        </td>
-        <td>
-          councillorVotes
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Toronto
-        </th>
-        <td>
-          <i>recorded vote</i>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Date/Time
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (House)
-        </th>
-        <td>
-          rollcall-vote
-        </td>
-        <td>
-          rollcall-num
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          action-date, action-time
-        </td>
-        <td>
-        </td>
-        <td>
-          vote-totals
-        </td>
-        <td>
-          vote-data
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (Senate)
-        </th>
-        <td>
-          roll_call_vote
-        </td>
-        <td>
-          vote_number
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          vote_date
-        </td>
-        <td>
-        </td>
-        <td>
-          <abbr title='vote_tally, count'>vote_tally, cou…</abbr>
-        </td>
-        <td>
-          members
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-<h1 id="Count">Count</h1>
-
-* The [Cornell Legal Information Institute Legislative Metadata Project](http://blog.law.cornell.edu/metasausage/downloads-and-related-information/) has explicit properties for counts: `hasYeaTally`, `hasNayTally` and `hasNoVoteTally`.
-* [Bulgaria](http://www.parliament.bg/bg/plenaryst) has explicit properties for counts: `За`, `Против`, `Въздържали` and `се Гласували`.
-* Canada has explicit properties for counts on its votes list page: `TotalYeas`, `TotalNays` and `TotalPaired`.
-* Czech Republic has explicit properties for counts: `pro`, `proti`, `zdrzel` and `nehlasoval`.
-* [Hong Kong](http://www.legco.gov.hk/general/english/open-legco/open-data.html) has explicit properties for counts (`present-count`, `yes-count`, `no-count`, and `abstain-count`) and for groups (`functional-constituency` and `geographical-constituency`).
-* [Spain](http://www.congreso.es/portal/page/portal/Congreso/Congreso/Actualidad/Votaciones) has explicit properties for counts: `Presentes`, `AFavor`, `EnContra`, `Abstenciones` and `NoVotan`.
-* The US House has explicit properties for counts: `yea-total`, `nay-total`, `present-total` and `not-voting-total`.
-* The US Senate has explicit properties for counts: `yeas`, `nays`, `present` and `absent`.
-
-<div class='table-responsive table-auto'>
-  <table class='table table-striped table-hover table-condensed'>
-    <thead>
-      <tr>
-        <th scope='row'>Term</th>
-        <td>Count</td>
-        <td>option</td>
-        <td>value</td>
-        <td>group</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope='row'>
-          Akoma Ntoso
-        </th>
-        <td>
-          count
-        </td>
-        <td>
-          refersTo
-        </td>
-        <td>
-          value
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Bulgaria
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          ПГ
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (Hansard)
-        </th>
-        <td>
-          DivisionType
-        </td>
-        <td>
-          Type
-        </td>
-        <td>
-          Total
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Switzerland
-        </th>
-        <td>
-          totalVote
-        </td>
-        <td>
-          type
-        </td>
-        <td>
-          count
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US House
-        </th>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          party
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-<h1 id="Vote">Vote</h1>
-
-* Canada has explicit properties for options on its vote detail page: `Yea`, `Nay` and `Paired`.
-* Germany has explicit properties for options: `ja`, `nein`, `Enthaltung`, `ungültig` and `nichtabgegeben`.
-* Brazil has both [DBF files](http://www.camara.leg.br/internet/votacao/listavotacao5404.asp) and [fixed-width text files without headers](http://www.camara.leg.br/internet/plenario/result/votacao/downlvnv54.htm) that follow [a schema](http://www.camara.leg.br/internet/plenario/result/votacao/Layout_ArquivosTXT_presencas_vota%C3%A7%C3%A3o_exportados.pdf).
-
-<div class='table-responsive table-auto'>
-  <table class='table table-striped table-hover table-condensed'>
-    <thead>
-      <tr>
-        <th scope='row'>Term</th>
-        <td>Vote</td>
-        <td>voter</td>
-        <td>area</td>
-        <td>group</td>
-        <td>option</td>
-        <td>role</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope='row'>
-          <code>schema</code>
-        </th>
-        <td>
-          <a href='http://schema.org/ChooseAction'>
-            ChooseAction
-          </a>
-        </td>
-        <td>
-          <a href='http://schema.org/agent'>
-            agent
-          </a>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          <a href='http://schema.org/option'>
-            option
-          </a>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          PML
-        </th>
-        <td>
-          vote
-        </td>
-        <td>
-          voterID
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          option
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Akoma Ntoso
-        </th>
-        <td>
-          voteAtts
-        </td>
-        <td>
           by
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          choice
         </td>
         <td>
           as
         </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Brazil
-        </th>
         <td>
-          <i>voto</i>
+          <abbr title='from, showAs, shortForm'>from, showAs, s…</abbr>
         </td>
         <td>
-          NOME_PAR
+          to
         </td>
         <td>
-          ESTADO
         </td>
         <td>
-          PARTIDO
         </td>
         <td>
-          VOTO
+        </td>
+        <td>
+          startTime
+        </td>
+        <td>
+          endTime
+        </td>
+        <td>
+          <abbr title='num, heading, subheading'>num, heading, s…</abbr>
+        </td>
+        <td>
+          <abbr title='speech, question, answer, scene, narrative, summary, other'>speech, questio…</abbr>
+        </td>
+        <td>
+        </td>
+        <td>
+          lang
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td>
         </td>
@@ -4074,6 +5576,12 @@ id: data
         <th scope='row'>
           Canada (Hansard)
         </th>
+        <td>
+          Intervention
+        </td>
+        <td>
+          PersonSpeaking
+        </td>
         <td>
         </td>
         <td>
@@ -4082,28 +5590,28 @@ id: data
         <td>
         </td>
         <td>
+          Content
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+          Timestamp
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td>
           Type
         </td>
         <td>
         </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Canada (vote detail)
-        </th>
         <td>
-          RecordedVote
+          language
         </td>
         <td>
-          Participant
-        </td>
-        <td>
-          Constituency
-        </td>
-        <td>
-          Party
         </td>
         <td>
         </td>
@@ -4112,187 +5620,53 @@ id: data
       </tr>
       <tr>
         <th scope='row'>
-          Czech Republic
+          SayIt
         </th>
         <td>
+          Speech
         </td>
         <td>
-          id_poslanec
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          vysledek
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Germany
-        </th>
-        <td>
-        </td>
-        <td>
-          Bezeichnung
+          speaker
         </td>
         <td>
         </td>
         <td>
-          Fraktion/Gruppe
+          speaker_display
         </td>
         <td>
         </td>
         <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Hong Kong
-        </th>
-        <td>
+          text
         </td>
         <td>
-          member
+          audio
+        </td>
+        <td>
+        </td>
+        <td>
+          <abbr title='start_date, start_time'>start_date, sta…</abbr>
+        </td>
+        <td>
+          <abbr title='end_date, end_time'>end_date, end_t…</abbr>
+        </td>
+        <td>
+          <abbr title='num, heading, subheading'>num, heading, s…</abbr>
+        </td>
+        <td>
+          type
+        </td>
+        <td>
+          tags
         </td>
         <td>
         </td>
         <td>
         </td>
         <td>
-          vote
+          event
         </td>
         <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Spain
-        </th>
-        <td>
-          Votacion
-        </td>
-        <td>
-          Diputado
-        </td>
-        <td>
-        </td>
-        <td>
-          Grupo
-        </td>
-        <td>
-          Voto
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Sweden
-        </th>
-        <td>
-        </td>
-        <td>
-          namn
-        </td>
-        <td>
-          valkrets
-        </td>
-        <td>
-          parti
-        </td>
-        <td>
-          rost
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Switzerland
-        </th>
-        <td>
-          councillorVote
-        </td>
-        <td>
-          <i>councillor</i>
-        </td>
-        <td>
-          <i>canton</i>
-        </td>
-        <td>
-          <i>faction</i>
-        </td>
-        <td>
-          decision
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          Toronto
-        </th>
-        <td>
-          <i>vote</i>
-        </td>
-        <td>
-          <i>member</i>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-          Vote
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (House)
-        </th>
-        <td>
-          recorded-vote
-        </td>
-        <td>
-          legislator
-        </td>
-        <td>
-        </td>
-        <td>
-          party
-        </td>
-        <td>
-          vote
-        </td>
-        <td>
-          role
-        </td>
-      </tr>
-      <tr>
-        <th scope='row'>
-          US (Senate)
-        </th>
-        <td>
-          member
-        </td>
-        <td>
-          member_full
-        </td>
-        <td>
-          state
-        </td>
-        <td>
-          party
-        </td>
-        <td>
-          vote_cast
-        </td>
-        <td>
+          section
         </td>
       </tr>
     </tbody>

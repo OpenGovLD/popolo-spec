@@ -30,22 +30,17 @@ The data specification will define terms (classes and properties) to describe an
     <div>A position in an organization that exists independently of the person holding it</div>
     <p class="note">e.g. Member of Parliament for Avalon</p>
   </dd>
-  <dt>Contact Detail</dt>
+  <dt>Contact detail</dt>
   <dd>
     <div>A means of contacting a person, organization or post</div>
     <p class="note">e.g. a telephone number, email address, postal address, contact form, etc.</p>
-  </dd>
-  <dt>Area</dt>
-  <dd>
-    <div>A geographic area whose geometry may change over time</div>
-    <p class="note">e.g. a country, city, ward, etc.</p>
   </dd>
   <dt>Motion</dt>
   <dd>
     <div>A formal step to introduce a matter for consideration by an organization</div>
     <p class="note">e.g. "That the House do now proceed to the Orders of the Day."</p>
   </dd>
-  <dt>Vote Event</dt>
+  <dt>Vote event</dt>
   <dd>
     <div>An event at which people's votes are recorded</div>
     <p class="note">e.g. a vote to pass a bill</p>
@@ -59,6 +54,16 @@ The data specification will define terms (classes and properties) to describe an
   <dd>
     <div>A voter's vote in a vote event</div>
     <p class="note">e.g. John Q. Public voted in favor of passage</p>
+  </dd>
+  <dt>Area</dt>
+  <dd>
+    <div>A geographic area whose geometry may change over time</div>
+    <p class="note">e.g. a country, city, ward, etc.</p>
+  </dd>
+  <dt>Speech</dt>
+  <dd>
+    <div>A speech by a person, a scene (e.g. applause), a narrative (e.g. "The House rose at 3:20pm"), or another non-speech part of a discussion (e.g. a list of bills).</div>
+    <p class="note">e.g. a representative addressing the legislature</p>
   </dd>
 </dl>
 
@@ -104,7 +109,7 @@ The subdocuments in a [later section](#classes-and-properties) add more requirem
 
 Following a [survey of existing specifications](/appendices/survey.html), the data specification reuses terms from:
 
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Publisher</th>
@@ -114,28 +119,58 @@ Following a [survey of existing specifications](/appendices/survey.html), the da
   </thead>
   <tbody>
     <tr>
+      <td>Bibliographic Framework Initiative</td>
+      <td><a href="http://bibframe.org/vocab/">BIBFRAME Vocabulary</a></td>
+      <td><code>bf</code></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="http://vocab.org/bio/0.1/.html">BIO: A vocabulary for biographical information</a></td>
+      <td><code>bio</code></td>
+    </tr>
+    <tr>
+      <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
+      <td><a href="http://www.w3.org/2000/10/swap/pim/contact">Contact: Utility concepts for everyday life</a></td>
+      <td><code>con</code></td>
+    </tr>
+    <tr>
       <td><abbr title="Dublic Core Metadata Initiative">DCMI</abbr></td>
-      <td><a href="http://dublincore.org/documents/dcmi-terms/">Metadata Terms</a></td>
+      <td><a href="http://dublincore.org/documents/dcmi-terms/">DCMI Metadata Terms</a></td>
       <td><code>dcterms</code></td>
     </tr>
     <tr>
-      <td><abbr title="Internet Engineering Task Force">IETF</abbr></td>
-      <td><a href="http://tools.ietf.org/html/rfc6350">vCard 4.0</a></td>
-      <td><code>vcard</code></td>
+      <td></td>
+      <td><a href="http://xmlns.com/foaf/spec/">FOAF Vocabulary Specification</a></td>
+      <td><code>foaf</code></td>
+    </tr>
+    <tr>
+      <td>GeoNames</td>
+      <td><a href="http://www.geonames.org/ontology/documentation.html">GeoNames Ontology</a></td>
+      <td><code>gn</code></td>
     </tr>
     <tr>
       <td><abbr title="Interoperability Solutions for European Public Administrations">ISA</abbr></td>
-      <td><a href="http://www.w3.org/ns/person">Person Core Vocabulary</a></td>
+      <td><a href="http://www.w3.org/ns/locn">ISA Programme Location Core Vocabulary</a></td>
+      <td><code>locn</code></td>
+    </tr>
+    <tr>
+      <td>Open Data Institute</td>
+      <td><a href="http://schema.theodi.org/odrs/">Open Data Rights Statement Vocabulary</a></td>
+      <td><code>odrs</code></td>
+    </tr>
+    <tr>
+      <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
+      <td><a href="http://www.w3.org/TR/vocab-org/">The Organization Ontology</a></td>
+      <td><code>org</code></td>
+    </tr>
+    <tr>
+      <td><abbr title="Interoperability Solutions for European Public Administrations">ISA</abbr></td>
+      <td><a href="http://www.w3.org/ns/person">ISA Programme Person Core Vocabulary</a></td>
       <td><code>person</code></td>
     </tr>
     <tr>
       <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
-      <td><a href="http://www.w3.org/TR/vocab-org/">Organization ontology (ORG)</a></td>
-      <td><code>org</code></td>
-    </tr>
-    <tr>
-      <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
-      <td><a href="http://www.w3.org/TR/rdf-schema/">RDF Schema (RDFS)</a></td>
+      <td><a href="http://www.w3.org/TR/rdf-schema/">RDF Schema</a></td>
       <td><code>rdfs</code></td>
     </tr>
     <tr>
@@ -145,23 +180,13 @@ Following a [survey of existing specifications](/appendices/survey.html), the da
     </tr>
     <tr>
       <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
-      <td><a href="http://www.w3.org/TR/skos-reference/">Simple Knowledge Organization System (SKOS)</a></td>
+      <td><a href="http://www.w3.org/TR/skos-reference/">SKOS Simple Knowledge Organization System</a></td>
       <td><code>skos</code></td>
     </tr>
     <tr>
-      <td><abbr title="World Wide Web Consortium">W3C</abbr></td>
-      <td><a href="http://www.w3.org/2000/10/swap/pim/contact">Contact: Utility concepts for everyday life</a></td>
-      <td><code>con</code></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="http://vocab.org/bio/0.1/.html">BIO vocabulary</a></td>
-      <td><code>bio</code></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="http://vocab.org/bio/0.1/.html">Friend of a Friend (FOAF)</a></td>
-      <td><code>foaf</code></td>
+      <td><abbr title="Internet Engineering Task Force">IETF</abbr></td>
+      <td><a href="http://tools.ietf.org/html/rfc6350">vCard Format Specification</a></td>
+      <td><code>vcard</code></td>
     </tr>
   </tbody>
 </table>
@@ -175,18 +200,20 @@ The subdocuments in the [next section](#classes-and-properties) describe specifi
 Each of the following subdocuments describes a class and its properties:
 
 * People and organizations
-  * [Person](/specs/person.html): [Name Component](/specs/person/name-component.html)
+  * [Person](/specs/person.html): [Name component](/specs/person/name-component.html)
   * [Organization](/specs/organization.html)
   * [Membership](/specs/membership.html)
   * [Post](/specs/post.html)
-  * [Contact Detail](/specs/contact-detail.html)
-* Geography
-  * [Area](/specs/contact-detail.html)
+  * [Contact detail](/specs/contact-detail.html)
 * Motions and voting
   * [Motion](/specs/motion.html)
-  * [Vote Event](/specs/vote-event.html)
+  * [Vote event](/specs/vote-event.html)
   * [Count](/specs/count.html)
   * [Vote](/specs/vote.html)
+* Geography
+  * [Area](/specs/contact-detail.html)
+* Works
+  * [Speech](/specs/speech.html)
 
 The structure of each subdocument is:
 
@@ -203,10 +230,11 @@ The structure of each subdocument is:
   <dd>Lists any standardized nomenclatures used as property values</dd>
 </dl>
 
-The following diagram succinctly describes the relationships among the classes. All arrows are one-to-many relationships.
+The following diagram succinctly describes the relationships among the people and organizations classes. All arrows are one-to-many relationships.
 
 <img src="/img/diagram.png" width="687" height="84" alt="UML diagram">
 {% comment %}http://yuml.me/edit/730bfbbb{% endcomment %}
+{% comment %}http://yuml.me/edit/0ab4e952{% endcomment %}
 
 <h2 id="metadata-properties">5.1. Metadata properties</h2>
 
@@ -243,21 +271,92 @@ The following table defines the metadata properties and maps each term to an <ab
 
 <h1 id="serialization">6. Serialization</h1>
 
-The data specification defines two serializations: <abbr title="Resource Description Framework">RDF</abbr> and <abbr title="JavaScript Object Notation">JSON</abbr>. RDF is a technology for data modeling, with a variety of syntax notations and serialization formats, including [<abbr title="Extensible Markup Language">XML</abbr>](http://www.w3.org/TR/rdf-syntax-grammar/), JSON (via [JSON-LD]((http://json-ld.org/spec/latest/json-ld/)), <abbr title="HyperText Markup Language">HTML</abbr> (via [<abbr title="Resource Description Framework in Attributes">RDFa</abbr>](http://www.w3.org/TR/rdfa-primer/) or [RDFa Lite](http://www.w3.org/TR/rdfa-lite/)), and [<abbr title="Notation 3">N3</abbr>](http://en.wikipedia.org/wiki/Notation_3) (a superset of the simpler [Turtle](http://www.w3.org/TR/turtle/) and [N-Triples](http://www.w3.org/TR/n-triples/) formats). JSON is a text-based, language-independent interchange format for structured data, derived from the JavaScript scripting language.
+The data specification defines two serializations: <abbr title="Resource Description Framework">RDF</abbr> and <abbr title="JavaScript Object Notation">JSON</abbr>. RDF is a technology for data modeling, with a variety of syntax notations and serialization formats, including [<abbr title="Extensible Markup Language">XML</abbr>](http://www.w3.org/TR/rdf-syntax-grammar/), JSON (via [JSON-LD](http://json-ld.org/spec/latest/json-ld/), <abbr title="HyperText Markup Language">HTML</abbr> (via [<abbr title="Resource Description Framework in Attributes">RDFa</abbr>](http://www.w3.org/TR/rdfa-primer/) or [RDFa Lite](http://www.w3.org/TR/rdfa-lite/)), and [<abbr title="Notation 3">N3</abbr>](http://en.wikipedia.org/wiki/Notation_3) (a superset of the simpler [Turtle](http://www.w3.org/TR/turtle/) and [N-Triples](http://www.w3.org/TR/n-triples/) formats). JSON is a text-based, language-independent interchange format for structured data, derived from the JavaScript scripting language.
 
 Given that the same RDF resource can be serialized in many different ways using [JSON-LD](http://json-ld.org/), [JSON Schema](http://json-schema.org/) are provided [below](#schema-and-examples) to ensure all JSON serializations look alike, to maximize interoperability. A JSON-LD serialization will nonetheless differ from a plain JSON serialization in a few ways:
 
 * A JSON-LD serialization <em class="rfc2119">should</em> use the [`@context`](http://json-ld.org/spec/latest/json-ld/#the-context), [`@type`](http://json-ld.org/spec/latest/json-ld/#dfn-node-type) and [`@id`](http://json-ld.org/spec/latest/json-ld/#node-identifiers) [keywords](http://json-ld.org/spec/latest/json-ld/#dfn-keyword).
 * The value of the `email` property of a `Person` <em class="rfc2119">should</em> be a ['mailto' URI](http://tools.ietf.org/html/rfc6068).
-* The value of the `role` property of a `Membership`, `Post`, or `Vote` <em class="rfc2119">should</em> be a URI or blank node for a `org:Role`.
-* The value of the `classification` property of an `Organization` <em class="rfc2119">should</em> be a URI or blank node for a `skos:Concept`.
+* The value of the `role` property of a `Membership`, `Post`, `Vote`, or `Speech` <em class="rfc2119">should</em> be a URI or blank node for a `org:Role`.
+* The value of the `classification` property of an `Organization`, `Motion` or `Speech` <em class="rfc2119">should</em> be a URI or blank node for a `skos:Concept`.
 * The value of the `classification` property of an `Area` <em class="rfc2119">should</em> be a URI or blank node for a `gn:Code`, which is a subclass of `skos:Concept`.
 * The value of the `type` property of a `ContactDetail` <em class="rfc2119">should</em> be a [node type](http://json-ld.org/spec/latest/json-ld/#dfn-node-type), i.e. an <abbr title="Internationalized Resource Identifiers">IRI</abbr>.
 * The value of the `scheme` property of an `Identifier` <em class="rfc2119">should</em> be a [value type](http://json-ld.org/spec/latest/json-ld/#dfn-value-type), i.e. an <abbr title="Internationalized Resource Identifiers">IRI</abbr>.
 * The value of the `requirement` property of a `Motion` <em class="rfc2119">should</em> be a URI or blank node for a `opengov:Requirement`.
 * The value of the `result` property of a `Motion` <em class="rfc2119">should</em> be a URI or blank node for a `opengov:Result`.
 * The value of the `links` and `sources` properties <em class="rfc2119">should</em> be an array of URIs, not an array of [link objects](/specs/#link).
-* A JSON-LD serialization <em class="rfc2119">should</em> use the `@id`, `area`, `group`, `legislative_session`, `on_behalf_of`, `organization`, `pair`, `parent`, `person`, `post`, `vote_event`, and `voter` properties instead of `id`, `area_id`, `group_id`, `legislative_session_id`, `on_behalf_of_id`, `organization_id`, `pair_id`, `parent_id`, `person_id`, `post_id`, `vote_event_id`, and `voter_id`.
+* A JSON-LD serialization <em class="rfc2119">should not</em> use the `*_id` properties:
+
+<table>
+  <thead>
+    <tr>
+      <th>JSON-LD</th>
+      <th>JSON</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@id</code></td>
+      <td><code>id</code></td>
+    </tr>
+    <tr>
+      <td><code>area</code></td>
+      <td><code>area_id</code></td>
+    </tr>
+    <tr>
+      <td><code>audience</code></td>
+      <td><code>audience_id</code></td>
+    </tr>
+    <tr>
+      <td><code>creator</code></td>
+      <td><code>creator_id</code></td>
+    </tr>
+    <tr>
+      <td><code>event</code></td>
+      <td><code>event_id</code></td>
+    </tr>
+    <tr>
+      <td><code>group</code></td>
+      <td><code>group_id</code></td>
+    </tr>
+    <tr>
+      <td><code>legislative_session</code></td>
+      <td><code>legislative_session_id</code></td>
+    </tr>
+    <tr>
+      <td><code>on_behalf_of</code></td>
+      <td><code>on_behalf_of_id</code></td>
+    </tr>
+    <tr>
+      <td><code>organization</code></td>
+      <td><code>organization_id</code></td>
+    </tr>
+    <tr>
+      <td><code>pair</code></td>
+      <td><code>pair_id</code></td>
+    </tr>
+    <tr>
+      <td><code>parent</code></td>
+      <td><code>parent_id</code></td>
+    </tr>
+    <tr>
+      <td><code>person</code></td>
+      <td><code>person_id</code></td>
+    </tr>
+    <tr>
+      <td><code>post</code></td>
+      <td><code>post_id</code></td>
+    </tr>
+    <tr>
+      <td><code>vote_event</code></td>
+      <td><code>vote_event_id</code></td>
+    </tr>
+    <tr>
+      <td><code>voter</code></td>
+      <td><code>voter_id</code></td>
+    </tr>
+  </tbody>
+</table>
 
 Dates <em class="rfc2119">must</em> be stored in <abbr title="Coordinated Universal Time">UTC</abbr>. To allow for imprecise dates, the use of [ISO 8601:2004](http://www.iso.org/iso/catalogue_detail?csnumber=40874) reduced dates[<sup>3</sup>](#note3) is <em class="rfc2119">recommended</em>. In RDF, the [`dcterms:W3CDTF`](http://www.w3.org/TR/NOTE-datetime) datatype is <em class="rfc2119">recommended</em>.
 
@@ -304,16 +403,10 @@ As described in the [conformance](#conformance) section, JSON serializations <em
       <td><a href="/examples/post.ttl">post.ttl</a></td>
     </tr>
     <tr>
-      <td><a href="/schemas/contact_detail.json">Contact Detail</a></td>
+      <td><a href="/schemas/contact_detail.json">Contact detail</a></td>
       <td><a href="/contexts/contact_detail.jsonld">contact_detail.jsonld</a></td>
       <td><a href="/examples/contact_detail.json">contact_detail.json</a></td>
       <td><a href="/examples/contact_detail.ttl">contact_detail.ttl</a></td>
-    </tr>
-    <tr>
-      <td><a href="/schemas/area.json">Area</a></td>
-      <td><a href="/contexts/area.jsonld">area.jsonld</a></td>
-      <td><a href="/examples/area.json">area.json</a></td>
-      <td><a href="/examples/area.ttl">area.ttl</a></td>
     </tr>
     <tr>
       <td><a href="/schemas/motion.json">Motion</a></td>
@@ -322,7 +415,7 @@ As described in the [conformance](#conformance) section, JSON serializations <em
       <td><a href="/examples/motion.ttl">motion.ttl</a></td>
     </tr>
     <tr>
-      <td><a href="/schemas/vote_event.json">Vote Event</a></td>
+      <td><a href="/schemas/vote_event.json">Vote event</a></td>
       <td><a href="/contexts/vote_event.jsonld">vote_event.jsonld</a></td>
       <td><a href="/examples/vote_event.json">vote_event.json</a></td>
       <td><a href="/examples/vote_event.ttl">vote_event.ttl</a></td>
@@ -338,6 +431,18 @@ As described in the [conformance](#conformance) section, JSON serializations <em
       <td><a href="/contexts/vote.jsonld">vote.jsonld</a></td>
       <td><a href="/examples/vote.json">vote.json</a></td>
       <td><a href="/examples/vote.ttl">vote.ttl</a></td>
+    </tr>
+    <tr>
+      <td><a href="/schemas/area.json">Area</a></td>
+      <td><a href="/contexts/area.jsonld">area.jsonld</a></td>
+      <td><a href="/examples/area.json">area.json</a></td>
+      <td><a href="/examples/area.ttl">area.ttl</a></td>
+    </tr>
+    <tr>
+      <td><a href="/schemas/speech.json">Speech</a></td>
+      <td><a href="/contexts/speech.jsonld">speech.jsonld</a></td>
+      <td><a href="/examples/speech.json">speech.json</a></td>
+      <td><a href="/examples/speech.ttl">speech.ttl</a></td>
     </tr>
   </tbody>
 </table>
@@ -365,45 +470,108 @@ The following examples use a Person document to demonstrate the metadata propert
 
 <h2 id="embedded-json-documents">6.3. Embedded JSON documents</h2>
 
-When serializing to JSON, you have two options when relating entities, which you may use simultaneously:
+When serializing to JSON, you may relate entities by linking and/or embedding relations.
 
-1. Link entities with the properties:
-    * `area_id`
-    * `group_id`
-    * `legislative_session_id`
-    * `on_behalf_of_id`
-    * `organization_id`
-    * `pair_id`
-    * `parent_id`
-    * `person_id`
-    * `post_id`
-    * `vote_event_id`
-    * `voter_id`
+<table>
+  <thead>
+    <tr>
+      <th>Linking</th>
+      <th>Embedding</th>
+      <th>Inverse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>area_id</code></td>
+      <td><code>area</code></td>
+      <td><code>memberships</code>, <code>organizations</code>, <code>posts</code></td>
+    </tr>
+    <tr>
+      <td><code>audience_id</code></td>
+      <td><code>audience</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>creator_id</code></td>
+      <td><code>creator</code></td>
+      <td><code>motions</code>, <code>speeches</code></td>
+    </tr>
+    <tr>
+      <td><code>event_id</code></td>
+      <td><code>event</code></td>
+      <td><code>speeches</code></td>
+    </tr>
+    <tr>
+      <td><code>group_id</code></td>
+      <td><code>group</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>legislative_session_id</code></td>
+      <td><code>legislative_session</code></td>
+      <td><code>motions</code>, <code>vote_events</code></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><code>member</code></td>
+      <td><code>memberships</code></td>
+    </tr>
+    <tr>
+      <td><code>motion_id</code></td>
+      <td><code>motion</code></td>
+      <td><code>vote_events</code></td>
+    <tr>
+      <td><code>on_behalf_of_id</code></td>
+      <td><code>on_behalf_of</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>organization_id</code></td>
+      <td><code>organization</code></td>
+      <td><code>memberships</code>, <code>motions</code>, <code>posts</code>, <code>vote_events</code></td>
+    </tr>
+    <tr>
+      <td><code>pair_id</code></td>
+      <td><code>pair</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>parent_id</code></td>
+      <td><code>parent</code></td>
+      <td><code>children</code></td>
+    </tr>
+    <tr>
+      <td><code>person_id</code></td>
+      <td><code>person</code></td>
+      <td><code>memberships</code></td>
+    </tr>
+    <tr>
+      <td><code>post_id</code></td>
+      <td><code>post</code></td>
+      <td><code>memberships</code></td>
+    </tr>
+    <tr>
+      <td><code>vote_event_id</code></td>
+      <td><code>vote_event</code></td>
+      <td><code>votes</code></td>
+    </tr>
+    <tr>
+      <td><code>voter_id</code></td>
+      <td><code>voter</code></td>
+      <td><code>votes</code></td>
+    </tr>
+  </tbody>
+</table>
 
-2. Embed an entity's relations on the entity's document with the properties:
-    * `area`
-    * `counts`
-    * `group`
-    * `legislative_session`
-    * `member`
-    * `memberships`
-    * `on_behalf_of`
-    * `organization`
-    * `pair`
-    * `parent`
-    * `person`
-    * `post`
-    * `posts`
-    * `vote_event`
-    * `vote_events`
-    * `votes`
-    * `voter`
+`contact_details`, `counts`, `group_results`, `identifiers`, `links`, `other_names` and `sources` are embedded only.
 
 The first option is straight-forward and is used in the examples in the subdocuments above.
 
 To embed an organization's posts on its Organization document, add a plural `posts` property to that document, whose value is an array of Post documents. Since the `organization_id` property on each Post subdocument is redundant with the `id` property on the Organization document, you <em class="rfc2119">may</em> omit the `organization_id` property from each subdocument.
 
 For the inverse relation, i.e. to embed a post's organization on its Post document, add a singular `organization` property to that document, whose value is the Organization document. You <em class="rfc2119">may</em> omit the `organization_id` property from the Post document, since it is redundant with the `id` property on the Organization document.
+
+In the case of an organization's memberships, an organization may both have members and be a member of other organizations. As such, the `organization_id` property <em class="rfc2119">should</em> be present on each subdocument, to avoid ambiguity.
 
 At the risk of stating the obvious, you <em class="rfc2119">must not</em> embed an entity in another unless the two are related. You <em class="rfc2119">may</em> embed to any depth, but you <em class="rfc2119">must not</em> embed recursively, e.g. embed an organization in a post in an organization.
 
@@ -480,6 +648,13 @@ For political groups, the range of the `group` property will be an [organization
 
 <h1 id="history">7. Change history</h1>
 
+* 2014-12-21: Add one-line description and extended description properties to the Organization class.
+* 2014-12-18: A Vote must have a vote event.
+* 2014-12-18: Add missing inverse embedding properties.
+* 2014-12-15: Add an identifier property to the Motion class.
+* 2014-12-14: Add a video property to the Speech class.
+* 2014-11-23: Add a Speech class.
+* 2014-10-28: A Membership need not have an organization if it has a post.
 * 2014-06-22: Remove the object property from the Motion class.
 * 2014-06-22: Add a group result property to the VoteEvent class.
 * 2014-06-22: Add a group property to the Count class.

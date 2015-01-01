@@ -7,7 +7,7 @@
     "@type": "@id"
   },
   "legislative_session": {
-    "@id": "http://www.w3.org/ns/opengov#legislative_session",
+    "@id": "http://www.w3.org/ns/opengov#legislativeSession",
     "@type": "@id"
   },
   "creator": {
@@ -15,8 +15,9 @@
     "@type": "@id"
   },
   "text": "http://schema.org/text",
+  "identifier": "http://purl.org/dc/terms/identifier",
   "classification": {
-    "@id": "http://www.w3.org/ns/opengov#classification",
+    "@id": "http://schema.org/additionalType",
     "@type": "@id"
   },
   "date": {
